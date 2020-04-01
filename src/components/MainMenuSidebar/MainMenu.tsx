@@ -6,6 +6,7 @@ import './sidebar-menu.css';
 import { Button, Col, Row } from 'react-bootstrap';
 import { Sidebar } from '../Sidebar/Sidebar';
 import Icon from '../Icon/Icon';
+import IconBar from '../IconBar';
 
 export interface NavStruct {
     struct: NavOption[];
@@ -61,6 +62,8 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
 
     return (
         <>
+
+        <IconBar></IconBar>
             <Row>
                 <Col md={10}></Col>
                 <Col md={2}>
@@ -70,7 +73,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
                 </Col>
             </Row>
 
-            <SidebarComponent
+            {/* <SidebarComponent
                 id="sidebar-menu"
                 ref={sidebarRef}
                 enableDock={enableDock}
@@ -83,7 +86,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
                 </div>
             </SidebarComponent>
 
-            <Sidebar></Sidebar>
+            <Sidebar></Sidebar> */}
         </>
     );
 };
