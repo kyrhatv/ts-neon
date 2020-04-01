@@ -1,28 +1,20 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { DynamicNavbar } from '../components/DynamicNavbar/DynamicNavbar';
+import { MainMenu } from '../components/MainMenuSidebar/MainMenu';
+
 import { RootStruct } from './RootStruct';
 import Planning from '../modules/planning';
 import Spells from '../modules/spells';
 
-import { useCss } from 'react-use';
-
 import '../style/style.less';
 
 const Root: FunctionComponent = () => {
-    const style = {
-        backgroundColor: '#303030',
-        color: 'white',
-        height: '100%',
-        minHeight: '100%'
-    };
-
-    const MainStyle = useCss(style);
-
     return (
-        <div className={MainStyle}>
+        <div>
             <Router>
-                <DynamicNavbar struct={RootStruct} />
+                {/* <DynamicNavbar struct={RootStruct} /> */}
+                <MainMenu struct={RootStruct} />
                 <Switch>
                     <Route path="/about">
                         <p>About</p>
