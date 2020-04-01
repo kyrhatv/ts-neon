@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:cc="http://creativecommons.org/ns#"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        width="29.999998"
+        height="30"
+        viewBox="0 0 7.9374992 7.9375003"
+        version="1.1"
+        id="svg4662"
+        inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+        sodipodi:docname="TimeSphere_icon.svg"
+        inkscape:export-filename="C:\Users\Timesphere\image.png"
+        inkscape:export-xdpi="96"
+        inkscape:export-ydpi="96">
+    <defs
+            id="defs4656"/>
+    <sodipodi:namedview
+            id="base"
+            pagecolor="#ffffff"
+            bordercolor="#666666"
+            borderopacity="1.0"
+            inkscape:pageopacity="0.0"
+            inkscape:pageshadow="2"
+            inkscape:zoom="1.979899"
+            inkscape:cx="471.87727"
+            inkscape:cy="148.11803"
+            inkscape:document-units="mm"
+            inkscape:current-layer="g4643"
+            showgrid="false"
+            fit-margin-top="0"
+            fit-margin-left="0"
+            fit-margin-right="0"
+            fit-margin-bottom="0"
+            inkscape:window-width="3840"
+            inkscape:window-height="2035"
+            inkscape:window-x="3059"
+            inkscape:window-y="-13"
+            inkscape:window-maximized="1"
+            units="px"/>
+    <metadata
+            id="metadata4659">
+        <rdf:RDF>
+            <cc:Work
+                    rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type
+                        rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+                <dc:title></dc:title>
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <g
+            inkscape:label="Calque 1"
+            inkscape:groupmode="layer"
+            id="layer1"
+            transform="translate(436.16647,132.96758)">
+        <g
+                id="g4643"
+                transform="matrix(0.35277777,0,0,-0.35277777,-466.02659,-65.726163)">
+            <path
+                    style="fill:#138EEC;fill-opacity:1;stroke-width:0.06487396"
+                    d="m 95.885153,190.60559 a 11.25776,11.412683 0 0 1 -11.242282,-11.09888 10.462602,10.606581 0 0 0 10.356998,9.18964 10.462602,10.606581 0 0 0 10.462591,-10.60658 10.462602,10.606581 0 0 0 -6.96382,-9.98418 11.25776,11.412683 0 0 1 8.64423,11.08736 11.25776,11.412683 0 0 1 -11.257717,11.41264 z"
+                    id="path4620"
+                    inkscape:connector-curvature="0"/>
+        </g>
+    </g>
+</svg>
