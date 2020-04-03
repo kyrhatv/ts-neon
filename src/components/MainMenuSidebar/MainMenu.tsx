@@ -4,10 +4,9 @@ import { MenuComponent } from '@syncfusion/ej2-react-navigations';
 import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
 import './sidebar-menu.css';
 import { Button, Col, Row } from 'react-bootstrap';
-import { Sidebar } from '../Sidebar/Sidebar';
+import SideBar from '../sf-sidebar';
 import Icon from '../Icon/Icon';
-import IconBar from '../IconBar';
-
+import IconBar from './IconBar';
 export interface NavStruct {
     struct: NavOption[];
 }
@@ -47,14 +46,14 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
         }
     ];
 
-    const mediaQuery = '(min-width: 600px)';
-
-    const enableDock = true;
-    const dockSize = '52px';
     const width = '220px';
-    const target = '.main-content';
+    const target = '.content';
 
     const sidebarRef = useRef(null);
+
+    const onCreate = () => {
+        sidebarRef.current.element.style.visibility = '';
+    };
 
     const openClick = () => {
         sidebarRef.current.toggle();
@@ -62,31 +61,32 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
 
     return (
         <>
-
-        <IconBar></IconBar>
-            <Row>
-                <Col md={10}></Col>
-                <Col md={2}>
-                    <Button onClick={openClick}>
-                        <Icon iconName="sliders-h"></Icon>
-                    </Button>
-                </Col>
-            </Row>
-
-            {/* <SidebarComponent
-                id="sidebar-menu"
-                ref={sidebarRef}
-                enableDock={enableDock}
-                mediaQuery={mediaQuery}
-                dockSize={dockSize}
-                width={width}
-                target={target}>
-                <div className="main-menu">
-                    <MenuComponent items={menuItems} orientation="Vertical" cssClass="dock-menu"></MenuComponent>
+            <Button onClick={openClick}>
+                <Icon iconName="sliders-h"></Icon>
+            </Button>
+            <div>
+                <div className="left-icon-menu">
+                    <IconBar></IconBar>
                 </div>
-            </SidebarComponent>
-
-            <Sidebar></Sidebar> */}
+                <div className="slider-menu">
+                    {/* ref={sidebarRef} */}
+                    {/* <SideBar>
+                        <>HELLO WORLD</>
+                    </SideBar> */}
+                    <SidebarComponent
+                        id="default-sidebar"
+                        type="Push"
+                        created={onCreate}
+                        style={{ visibility: 'hidden' }}
+                        ref={sidebarRef}
+                        width={width}
+                        target={target}>
+                        <div className="main-menu">
+                            <span>ds</span>
+                        </div>
+                    </SidebarComponent>
+                </div>
+            </div>
         </>
     );
 };

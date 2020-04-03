@@ -12,7 +12,7 @@ import '../style/style.less';
 const Root: FunctionComponent = () => {
     return (
         <Router>
-            <DynamicNavbar struct={RootStruct} />
+            {/* <DynamicNavbar struct={RootStruct} /> */}
             <MainMenu struct={RootStruct} />
             <Switch>
                 <Route path="/about">

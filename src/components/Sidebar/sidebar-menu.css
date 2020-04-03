@@ -52,7 +52,7 @@
  /* content area styles */
  #maintext.main-content {
      height: 100vh;
-     z-index: 1000;
+     z-index: 888;
  }
 
  #maintext .sidebar-menu-content {
@@ -219,11 +219,11 @@
     display: none
 }
 
-.ej2-new .container-fluid,
+/* .ej2-new .container-fluid,
 .ej2-new .container-fluid .control-section,
 #sidebar-section, body, .sidebar-menu .col-md-12 {
     padding: 0px;
-}
+} */
 
 .ej2-new .sample-browser > .content.e-view {
     top: 0px;

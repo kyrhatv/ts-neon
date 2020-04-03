@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
-import Icon from '../Icon/Icon';
+import Icon from '../../Icon/Icon';
 import { Nav, OverlayTrigger, Tooltip, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useTranslation } from 'react-i18next';
+import logo from '../../../assets/TimeSphere_icon_30.svg';
 
 import './style.css';
 
@@ -18,6 +19,13 @@ const IconBar: FunctionComponent = ({}) => {
     return (
         <div className="icon-bar-container">
             <Nav variant="pills" defaultActiveKey="/home" className="flex-column icon-bar">
+                <LinkContainer to="/profile">
+                    <Nav.Item>
+                        <Nav.Link>
+                            <img src={logo} alt="" height="30" className="d-inline-block align-top" />
+                        </Nav.Link>
+                    </Nav.Item>
+                </LinkContainer>
                 <OverlayTrigger placement="right" overlay={<Tooltip id="ds">Tooltip</Tooltip>}>
                     <Nav.Item>
                         <Nav.Link href="/home">
@@ -40,19 +48,21 @@ const IconBar: FunctionComponent = ({}) => {
                     </Nav.Item>
                 </OverlayTrigger>
             </Nav>
-            <Nav className="test">
-                <Nav.Item>
-                    <Nav.Link eventKey="link-4" onClick={changeLanguage}>
-                        <div>{nextLanguage}</div>
-                    </Nav.Link>
-                </Nav.Item>
-                <OverlayTrigger placement="right" overlay={<Tooltip id="ds">{t('profile')}</Tooltip>}>
-                    <LinkContainer to="/profile">
-                        <Nav.Link>
-                            <Icon iconName="user-circle" size="2x" />
+            <Nav className="footer-settings">
+                <div>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link-4" onClick={changeLanguage}>
+                            <div>{nextLanguage}</div>
                         </Nav.Link>
-                    </LinkContainer>
-                </OverlayTrigger>
+                    </Nav.Item>
+                    <OverlayTrigger placement="right" overlay={<Tooltip id="ds">{t('profile')}</Tooltip>}>
+                        <LinkContainer to="/profile">
+                            <Nav.Link>
+                                <Icon iconName="user-circle" size="2x" />
+                            </Nav.Link>
+                        </LinkContainer>
+                    </OverlayTrigger>
+                </div>
             </Nav>
         </div>
     );

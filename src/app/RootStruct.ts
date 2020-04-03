@@ -2,20 +2,6 @@ import { NavOption } from '../components/DynamicNavbar/DynamicNavbar';
 
 export const RootStruct: NavOption[] = [
     {
-        key: 'spells',
-        link: '/spells',
-        children: [
-            {
-                key: 'priest',
-                link: '/priest'
-            },
-            {
-                key: 'mage',
-                link: '/mage'
-            }
-        ]
-    },
-    {
         key: 'planning',
         link: '/planning',
         children: [

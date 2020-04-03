@@ -6,6 +6,9 @@
     width: 70px; /* Set a specific width */
     background-color: #282c34; /* Dark-grey background */
     height: 100%;
+    position: fixed;
+    height: 100vh;
+    z-index: 9999;
 }
 
 .icon-bar a {
@@ -36,7 +39,8 @@
     align-items: center;
 }
 
-.test {
-    display: table-cell;
-    vertical-align: bottom;
+.footer-settings {
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
