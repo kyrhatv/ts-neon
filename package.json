@@ -50,6 +50,7 @@
     "bootstrap": "^4.4.1",
     "i18next": "^19.3.4",
     "i18next-browser-languagedetector": "latest",
+    "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",

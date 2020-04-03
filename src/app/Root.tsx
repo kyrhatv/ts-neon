@@ -11,28 +11,26 @@ import '../style/style.less';
 
 const Root: FunctionComponent = () => {
     return (
-        <div>
-            <Router>
-                {/* <DynamicNavbar struct={RootStruct} /> */}
-                <MainMenu struct={RootStruct} />
-                <Switch>
-                    <Route path="/about">
-                        <p>About</p>
-                    </Route>
-                    <Route path="/profile">
-                        <p>Profile</p>
-                    </Route>
-                    <Route path="/spells" component={Spells} />
-                    <Route path="/planning" component={Planning} />
-                    <Route path="/timesheets">
-                        <p>Timesheets</p>
-                    </Route>
-                    <Route exact path="/">
-                        <p>Home</p>
-                    </Route>
-                </Switch>
-            </Router>
-        </div>
+        <Router>
+            <DynamicNavbar struct={RootStruct} />
+            <MainMenu struct={RootStruct} />
+            <Switch>
+                <Route path="/about">
+                    <p>About</p>
+                </Route>
+                <Route path="/profile">
+                    <p>Profile</p>
+                </Route>
+                <Route path="/spells" component={Spells} />
+                <Route path="/planning" component={Planning} />
+                <Route path="/timesheets">
+                    <p>Timesheets</p>
+                </Route>
+                <Route exact path="/">
+                    <p>Home</p>
+                </Route>
+            </Switch>
+        </Router>
     );
 };
 

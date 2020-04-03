@@ -1,46 +1,59 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
 import Icon from '../Icon/Icon';
-import { useCss } from 'react-use';
+import { Nav, OverlayTrigger, Tooltip, NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { useTranslation } from 'react-i18next';
 
-import './style.less';
+import './style.css';
 
 const IconBar: FunctionComponent = ({}) => {
-    const IconBar = useCss({
-        width: '45px' /* Set a specific width */,
-        height:'100%',
-        backgroundColor: '#555' /* Dark-grey background */
-    });
+    const [t, i18n] = useTranslation();
 
-    const iconBarItem = useCss({
-        display: 'block' /* Make the links appear below each other instead of side-by-side */,
-        textAlign: 'center' /* Center-align text */,
-        padding: '5px' /* Add some padding */,
-        transition: 'all 0.3s ease' /* Add transition for hover effects */,
-        color: 'white' /* White text color */,
-        // fontSize: 36 /* Increased font-size */,
-        '&:hover': { backgroundColor: '#000' },
-        '&:active' : {backgroundColor: '#4caf50'} /* Add an active/current color */
-    });
+    const changeLanguage = () => {
+        i18n.language === 'en' ? i18n.changeLanguage('fr') : i18n.changeLanguage('en');
+    };
+    const nextLanguage = i18n.language === 'en' ? 'Fr' : 'En';
 
     return (
-        <div className={IconBar}>
-            <a className={iconBarItem}>
-                <Icon iconName="home"  />
-                <i className="fa fa-home"></i>
-            </a>
-            <a className={iconBarItem}>
-                <Icon iconName="home"  />
-                <i className="fa fa-home"></i>
-            </a>
-            <a className={iconBarItem}>
-                <Icon iconName="home"  />
-                <i className="fa fa-home"></i>
-            </a>
-            <a className={iconBarItem}>
-                <Icon iconName="home"  />
-                <i className="fa fa-home"></i>
-            </a>
+        <div className="icon-bar-container">
+            <Nav variant="pills" defaultActiveKey="/home" className="flex-column icon-bar">
+                <OverlayTrigger placement="right" overlay={<Tooltip id="ds">Tooltip</Tooltip>}>
+                    <Nav.Item>
+                        <Nav.Link href="/home">
+                            <Icon iconName="home" size="2x" />
+                        </Nav.Link>
+                    </Nav.Item>
+                </OverlayTrigger>
+                <OverlayTrigger placement="right" overlay={<Tooltip id="ds">Tooltip</Tooltip>}>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link-3">
+                            <Icon iconName="calendar" size="2x" />
+                        </Nav.Link>
+                    </Nav.Item>
+                </OverlayTrigger>
+                <OverlayTrigger placement="right" overlay={<Tooltip id="ds">Tooltip</Tooltip>}>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link-4" disabled>
+                            <Icon iconName="home" size="2x" />
+                        </Nav.Link>
+                    </Nav.Item>
+                </OverlayTrigger>
+            </Nav>
+            <Nav className="test">
+                <Nav.Item>
+                    <Nav.Link eventKey="link-4" onClick={changeLanguage}>
+                        <div>{nextLanguage}</div>
+                    </Nav.Link>
+                </Nav.Item>
+                <OverlayTrigger placement="right" overlay={<Tooltip id="ds">{t('profile')}</Tooltip>}>
+                    <LinkContainer to="/profile">
+                        <Nav.Link>
+                            <Icon iconName="user-circle" size="2x" />
+                        </Nav.Link>
+                    </LinkContainer>
+                </OverlayTrigger>
+            </Nav>
         </div>
     );
 };
