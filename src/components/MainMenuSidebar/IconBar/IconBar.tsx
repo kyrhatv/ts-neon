@@ -29,7 +29,7 @@ export interface NavItem {
 const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
     const menuProps = useSelector(toggleMenuSelector);
-    console.log(struct);
+
     const dispatch = useDispatch();
 
     const changeLanguage = () => {
@@ -54,7 +54,7 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
 
                 {struct.map((module) => {
                     return (
-                        <OverlayTrigger placement="right" overlay={<Tooltip id="ds">{t(module.key)}</Tooltip>}>
+                        <OverlayTrigger placement="right" overlay={<Tooltip id={module.key}>{t(module.key)}</Tooltip>}>
                             <Nav.Item>
                                 <Nav.Link onClick={toggleMenuHandler}>
                                     <Icon iconName={module.iconName} size="2x" />
@@ -64,19 +64,21 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
                     );
                 })}
             </Nav>
-            <Nav className="footer-settings">
+            <Nav variant="pills" className="flex-column icon-bar footer-settings ">
                 <div>
-                    <Nav.Item>
-                        <Nav.Link eventKey="link-4" onClick={changeLanguage}>
-                            <div>{nextLanguage}</div>
-                        </Nav.Link>
-                    </Nav.Item>
-                    <OverlayTrigger placement="right" overlay={<Tooltip id="ds">{t('profile')}</Tooltip>}>
-                        <LinkContainer to="/profile">
-                            <Nav.Link>
+                    <OverlayTrigger placement="right" overlay={<Tooltip id="ds">j</Tooltip>}>
+                        <Nav.Item>
+                            <Nav.Link onClick={changeLanguage}>
+                                <div>{nextLanguage}</div>
+                            </Nav.Link>
+                        </Nav.Item>
+                    </OverlayTrigger>
+                    <OverlayTrigger placement="right" overlay={<Tooltip id="ds">j</Tooltip>}>
+                        <Nav.Item>
+                            <Nav.Link onClick={changeLanguage}>
                                 <Icon iconName="user-circle" size="2x" />
                             </Nav.Link>
-                        </LinkContainer>
+                        </Nav.Item>
                     </OverlayTrigger>
                 </div>
             </Nav>
