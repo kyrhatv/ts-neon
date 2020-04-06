@@ -3,11 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 type MenuState = {
     id: string;
     isShown: boolean;
+    currentModule: 'planning' | 'timesheets' | 'organisation' | 'analyze' | 'request' | 'parameter';
 };
 
 const INITIAL_STATE: MenuState = {
     id: 'LEFT_MENU',
-    isShown: false
+    isShown: false,
+    currentModule:'planning'
 };
 
 export const slice = createSlice({

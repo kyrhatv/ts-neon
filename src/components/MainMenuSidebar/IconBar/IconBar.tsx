@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { Nav, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +10,7 @@ import './style.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu, toggleMenuSelector } from '../MainMenuSlice';
+import { useCss } from 'react-use';
 export interface NavStruct {
     struct: NavOption[];
 }
@@ -30,6 +30,7 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
     const menuProps = useSelector(toggleMenuSelector);
 
+    const [currentModule, setCurrentModule] = useState(menuProps.currentModule);
     const dispatch = useDispatch();
 
     const changeLanguage = () => {
@@ -37,9 +38,15 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     };
     const nextLanguage = i18n.language === 'en' ? 'Fr' : 'En';
 
-    const toggleMenuHandler = () => {
-        dispatch(toggleMenu({ id: 'LEFT_MENU', isShown: !menuProps.isShown }));
+    const toggleMenuHandler = (moduleKey) => {
+        setCurrentModule(moduleKey);
+        dispatch(toggleMenu({ id: 'LEFT_MENU', isShown: !menuProps.isShown, currentModule: moduleKey }));
     };
+
+    console.log(currentModule);
+
+    const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });
+    const moduleStyle = useCss({ color: '#fff', backgroundColor: '#282c34' });
 
     return (
         <div className="icon-bar-container">
@@ -53,10 +60,14 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
                 </LinkContainer>
 
                 {struct.map((module) => {
+                    let linkstyle = currentModule === module.key ? currentmoduleStyle : moduleStyle;
                     return (
-                        <OverlayTrigger placement="right" overlay={<Tooltip id={module.key}>{t(module.key)}</Tooltip>}>
-                            <Nav.Item>
-                                <Nav.Link onClick={toggleMenuHandler}>
+                        <OverlayTrigger
+                            key={module.key}
+                            placement="right"
+                            overlay={<Tooltip id={module.key}>{t(module.key)}</Tooltip>}>
+                            <Nav.Item className={linkstyle}>
+                                <Nav.Link onClick={() => toggleMenuHandler(module.key)}>
                                     <Icon iconName={module.iconName} size="2x" />
                                 </Nav.Link>
                             </Nav.Item>

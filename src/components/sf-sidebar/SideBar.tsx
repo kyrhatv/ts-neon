@@ -27,40 +27,46 @@ const defaultProps: SidebarProps = {
     children: <h1>hello</h1>
 };
 
-export const SideBar: FunctionComponent<SidebarProps> = React.forwardRef(
-    ({ id, type, position, width, showBackdrop, closeOnDocumentClick, children }) => {
-        const menuProps = useSelector(toggleMenuSelector);
+export const SideBar: FunctionComponent<SidebarProps> = ({
+    id,
+    type,
+    position,
+    width,
+    showBackdrop,
+    closeOnDocumentClick,
+    children
+}) => {
+    const menuProps = useSelector(toggleMenuSelector);
 
-        const sidebarRef = useRef(null);
+    const sidebarRef = useRef(null);
 
-        const onCreate = () => {
-            sidebarRef.current.element.style.visibility = visibilityValue;
-        };
+    const onCreate = () => {
+        sidebarRef.current.element.style.visibility = visibilityValue;
+    };
 
-        const visibilityValue = menuProps.isShown ? 'visible' : 'hidden';
-        if (sidebarRef.current !== null) {
-            sidebarRef.current.toggle();
-        }
-
-        return (
-            <>
-                <div className="slider-menu">
-                    <SidebarComponent
-                        id="default-sidebar"
-                        type={type}
-                        created={onCreate}
-                        style={{ visibility: visibilityValue }}
-                        position={position}
-                        showBackdrop={showBackdrop}
-                        ref={sidebarRef}
-                        width={width}
-                        target={'.content'}>
-                        <div className="main-menu">{children}</div>
-                    </SidebarComponent>
-                </div>
-            </>
-        );
+    const visibilityValue = menuProps.isShown ? 'visible' : 'hidden';
+    if (sidebarRef.current !== null) {
+        sidebarRef.current.toggle();
     }
-);
+
+    return (
+        <>
+            <div className="slider-menu">
+                <SidebarComponent
+                    id="default-sidebar"
+                    type={type}
+                    created={onCreate}
+                    style={{ visibility: visibilityValue }}
+                    position={position}
+                    showBackdrop={showBackdrop}
+                    ref={sidebarRef}
+                    width={width}
+                    target={'.content'}>
+                    <div className="main-menu">{children}</div>
+                </SidebarComponent>
+            </div>
+        </>
+    );
+};
 
 SideBar.defaultProps = defaultProps;

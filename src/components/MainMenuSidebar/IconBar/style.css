@@ -1,10 +1,10 @@
 .icon-bar {
-    width: 70px; /* Set a specific width */
-    background-color: #282c34; /* Dark-grey background */
+    width: 70px;
+    background-color: #282c34;
 }
 .icon-bar-container {
-    width: 70px; /* Set a specific width */
-    background-color: #282c34; /* Dark-grey background */
+    width: 70px;
+    background-color: #282c34;
     height: 100%;
     position: fixed;
     height: 100vh;
@@ -13,23 +13,27 @@
 
 .icon-bar a {
     height: 70px;
-    color: white; /* White text color */
+    color: white;
 }
 
 .icon-bar a:hover {
-    color: white; /* White text color */
-    background-color: #000; /* Add a hover color */
+    height: 70px;
+    width: 70px;
+    color: white;
+    background-color: #000;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
     color: #fff;
+    width: 70px;
     background-color: #004085;
 }
 
 .nav-link {
     display: flex;
     justify-content: center;
+    width: 70px;
     align-items: center;
 }
 
