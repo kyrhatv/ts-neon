@@ -3,9 +3,12 @@ import { FunctionComponent } from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useTranslation } from 'react-i18next';
+import {
+    IconName
+} from '@fortawesome/fontawesome-svg-core';
+
 import logo from '../../assets/TimeSphere_icon_30.svg';
 import { useCss } from 'react-use';
-
 
 export interface NavStruct {
     struct: NavOption[];
@@ -14,6 +17,7 @@ export interface NavStruct {
 export interface NavOption {
     key: string;
     link: string;
+    iconName: IconName;
     children: NavItem[] | null;
 }
 
@@ -25,21 +29,20 @@ export interface NavItem {
 export const DynamicNavbar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
 
-
     const style = useCss({
-        backgroundColor: "#000000",
-        color:'white'
-    })
+        backgroundColor: '#000000',
+        color: 'white'
+    });
     return (
         <>
-            <Navbar style={{ zIndex: 10000 }} collapseOnSelect expand="lg" className={style} variant="dark" >
+            <Navbar style={{ zIndex: 10000 }} collapseOnSelect expand="lg" className={style} variant="dark">
                 <Navbar.Brand href="/">
                     <img src={logo} alt="" height="50" className="d-inline-block align-top" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        {struct.map(navOption => {
+                        {struct.map((navOption) => {
                             if (navOption.children === null) {
                                 return (
                                     <LinkContainer key={navOption.key} to={navOption.link}>
@@ -49,7 +52,7 @@ export const DynamicNavbar: FunctionComponent<NavStruct> = ({ struct }) => {
                             } else {
                                 return (
                                     <NavDropdown key={navOption.key} title={t(navOption.key)} id={navOption.link}>
-                                        {navOption.children?.map(navItem => (
+                                        {navOption.children?.map((navItem) => (
                                             <LinkContainer
                                                 key={navOption.key + navItem.key}
                                                 to={navOption.link + navItem.link}>
