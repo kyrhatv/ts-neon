@@ -24,17 +24,15 @@ export interface NavItem {
 
 export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
     return (
-        <>
-            <div>
-                <div className="left-icon-menu">
-                    <IconBar struct={struct}></IconBar>
-                </div>
-                <div className="slider-menu">
-                    <SideBar showBackdrop={false} position={'Left'} type={'Over'} width={'220px'}>
-                        <MenuContent struct={struct} />
-                    </SideBar>
-                </div>
+        <div>
+            <div className="left-icon-menu">
+                <IconBar struct={struct}></IconBar>
             </div>
-        </>
+            <div className="slider-menu">
+                <SideBar showBackdrop={false} position={'Left'} type={'Over'} width={'220px'}>
+                    <MenuContent struct={struct} />
+                </SideBar>
+            </div>
+        </div>
     );
 };
