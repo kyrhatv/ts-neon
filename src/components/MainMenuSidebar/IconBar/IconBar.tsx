@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { Nav, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -9,8 +9,11 @@ import { IconName } from '@fortawesome/fontawesome-svg-core';
 import './style.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleMenu, toggleMenuSelector } from '../MainMenuSlice';
+
+import { toggleMenu, getMenu } from '../MainMenuSlice';
+
 import { useCss } from 'react-use';
+
 export interface NavStruct {
     struct: NavOption[];
 }
@@ -28,9 +31,10 @@ export interface NavItem {
 }
 const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
-    const menuProps = useSelector(toggleMenuSelector);
+    const menuState = useSelector(getMenu);
 
-    const [currentModule, setCurrentModule] = useState(menuProps.currentModule);
+    const currentModule = menuState.currentModule;
+
     const dispatch = useDispatch();
 
     const changeLanguage = () => {
@@ -39,8 +43,9 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const nextLanguage = i18n.language === 'en' ? 'Fr' : 'En';
 
     const toggleMenuHandler = (moduleKey) => {
-        setCurrentModule(moduleKey);
-        dispatch(toggleMenu({ id: 'LEFT_MENU', isShown: true, currentModule: moduleKey }));
+        const response = moduleKey !== currentModule && moduleKey !== null ? true : false;
+        const module = response === false ? undefined : moduleKey;
+        dispatch(toggleMenu({ id: 'LEFT_MENU', isShown: response, currentModule: module }));
     };
 
     const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });

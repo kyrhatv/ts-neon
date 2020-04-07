@@ -1,13 +1,13 @@
-import React, { useRef, Ref } from 'react';
+import React, { useRef } from 'react';
 import { FunctionComponent } from 'react';
 import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
-import { useSelector } from 'react-redux';
-import { toggleMenuSelector } from '../MainMenuSidebar/MainMenuSlice';
+import { usePrevious } from '../../utils/hs-hooks';
 
 import './sidebar-menu.css';
 
 export interface SidebarProps {
     id?: string;
+    isShown: boolean;
     type?: 'Over' | 'Push' | 'Slide' | 'Auto';
     position?: 'Left' | 'Right';
     width?: 'auto' | string;
@@ -18,6 +18,7 @@ export interface SidebarProps {
 
 const defaultProps: SidebarProps = {
     id: 'default-sidebar',
+    isShown: false,
     type: 'Over',
     position: 'Left',
     width: '220px',
@@ -28,6 +29,7 @@ const defaultProps: SidebarProps = {
 
 export const SideBar: FunctionComponent<SidebarProps> = ({
     id,
+    isShown,
     type,
     position,
     width,
@@ -35,7 +37,7 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
     closeOnDocumentClick,
     children
 }) => {
-    const menuProps = useSelector(toggleMenuSelector);
+    const prevIsShown = usePrevious(isShown);
 
     const sidebarRef = useRef(null);
 
@@ -43,9 +45,9 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
         sidebarRef.current.element.style.visibility = visibilityValue;
     };
 
-    const visibilityValue = menuProps.isShown ? 'visible' : 'hidden';
+    const visibilityValue = isShown ? 'visible' : 'hidden';
 
-    if (sidebarRef.current !== null) {
+    if (sidebarRef.current !== null && isShown !== prevIsShown) {
         sidebarRef.current.toggle();
     }
 
@@ -56,6 +58,7 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
             created={onCreate}
             style={{ visibility: visibilityValue }}
             position={position}
+            // closeOnDocumentClick={true}
             showBackdrop={showBackdrop}
             ref={sidebarRef}
             width={width}

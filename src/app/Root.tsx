@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { DynamicNavbar } from '../components/DynamicNavbar/DynamicNavbar';
 import { MainMenu } from '../components/MainMenuSidebar/MainMenu';
 
 import { RootStruct } from './RootStruct';
@@ -12,7 +11,6 @@ import '../style/style.less';
 const Root: FunctionComponent = () => {
     return (
         <Router>
-            {/* <DynamicNavbar struct={RootStruct} /> */}
             <MainMenu struct={RootStruct} />
             <Switch>
                 <Route path="/about">
