@@ -40,10 +40,8 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
 
     const toggleMenuHandler = (moduleKey) => {
         setCurrentModule(moduleKey);
-        dispatch(toggleMenu({ id: 'LEFT_MENU', isShown: !menuProps.isShown, currentModule: moduleKey }));
+        dispatch(toggleMenu({ id: 'LEFT_MENU', isShown: true, currentModule: moduleKey }));
     };
-
-    console.log(currentModule);
 
     const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });
     const moduleStyle = useCss({ color: '#fff', backgroundColor: '#282c34' });
@@ -58,7 +56,6 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
                         </Nav.Link>
                     </Nav.Item>
                 </LinkContainer>
-
                 {struct.map((module) => {
                     let linkstyle = currentModule === module.key ? currentmoduleStyle : moduleStyle;
                     return (
@@ -77,13 +74,11 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
             </Nav>
             <Nav variant="pills" className="flex-column icon-bar footer-settings ">
                 <div>
-                    <OverlayTrigger placement="right" overlay={<Tooltip id="ds">j</Tooltip>}>
-                        <Nav.Item>
-                            <Nav.Link onClick={changeLanguage}>
-                                <div>{nextLanguage}</div>
-                            </Nav.Link>
-                        </Nav.Item>
-                    </OverlayTrigger>
+                    <Nav.Item>
+                        <Nav.Link onClick={changeLanguage}>
+                            <div>{nextLanguage}</div>
+                        </Nav.Link>
+                    </Nav.Item>
                     <OverlayTrigger placement="right" overlay={<Tooltip id="ds">j</Tooltip>}>
                         <Nav.Item>
                             <Nav.Link onClick={changeLanguage}>

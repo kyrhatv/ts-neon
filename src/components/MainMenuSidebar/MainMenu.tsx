@@ -4,6 +4,7 @@ import './sidebar-menu.css';
 import SideBar from '../sf-sidebar';
 import IconBar from './IconBar';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { MenuContent } from './MenuContent';
 
 export interface NavStruct {
     struct: NavOption[];
@@ -30,7 +31,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
                 </div>
                 <div className="slider-menu">
                     <SideBar showBackdrop={false} position={'Left'} type={'Over'} width={'220px'}>
-                        <>HELLO WORLD</>
+                        <MenuContent struct={struct} />
                     </SideBar>
                 </div>
             </div>

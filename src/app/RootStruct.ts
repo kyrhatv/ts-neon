@@ -80,7 +80,7 @@ export const RootStruct: NavOption[] = [
         ]
     },
     {
-        key: 'bi',
+        key: 'analyze',
         link: '/analyze',
         iconName: 'chart-line',
         // roles: [...Permissions.EMPLOYEE_MODULE, ...Permissions.HIERARCHY_MODULE],
