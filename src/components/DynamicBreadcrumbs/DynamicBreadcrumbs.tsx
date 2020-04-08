@@ -2,6 +2,8 @@ import * as React from 'react';
 import { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import './style.css';
+
 export interface breadCrumbsProps {
     struct: CrumbOption[];
     folder: string[];
@@ -21,17 +23,18 @@ export interface BreadItem {
 export const DynamicBreadcrumbs: FunctionComponent<breadCrumbsProps> = ({ folder }) => {
     const [t] = useTranslation();
 
-
     let path = '';
     return (
         <>
-            <nav aria-label="breadcrumb" style={{ backgroundColor: '#212121' }}>
-                <ol className="breadcrumb" style={{ backgroundColor: '#212121' }}>
-                    {folder.map(navOption => {
+            <nav aria-label="breadcrumb" style={{ backgroundColor: '#282c34' }}>
+                <ol className="breadcrumb" style={{ backgroundColor: '#282c34' }}>
+                    {folder.map((navOption) => {
                         path !== navOption ? (path = path + '/' + navOption) : (path = navOption);
                         return (
                             <li className="breadcrumb-item" key={path}>
-                                <a href={path}>{t(navOption)}</a>
+                                <a className="breadcrumbs-link" href={path}>
+                                    {t(navOption)}
+                                </a>
                             </li>
                         );
                     })}

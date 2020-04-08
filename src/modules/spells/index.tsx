@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { Mage } from './mage/Mage';
+// import { Mage } from '../planning/demo/Demo';
 import { Priest } from './priest/Priest';
 import { RootStruct } from '../../app/RootStruct';
 import { DynamicBreadcrumbs } from '../../components/DynamicBreadcrumbs/DynamicBreadcrumbs';
@@ -14,7 +14,7 @@ const Spells = (routerProps: { match: { path: any } }) => {
             <DynamicBreadcrumbs struct={RootStruct} folder={folderPaths} />
             <Switch>
                 <Route path={`${routerProps.match.path}/priest`} component={Priest}></Route>
-                <Route path={`${routerProps.match.path}/mage`} component={Mage}></Route>
+                {/* <Route path={`${routerProps.match.path}/mage`} component={Mage}></Route> */}
                 <Route exact path={`${routerProps.match.path}/`}>
                     <h1>Spells</h1>
                 </Route>

@@ -3,7 +3,8 @@ import { FunctionComponent } from 'react';
 import { NavOption, SubCategory } from '../../../hs-interfaces/Root-Struct';
 import { useTranslation } from 'react-i18next';
 import { useCss } from 'react-use';
-import { Accordion, Card } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Accordion, Card, Nav } from 'react-bootstrap';
 import InlineSpace from '../../hs-component-space';
 
 import Icon from '../../Icon/Icon';
@@ -28,7 +29,20 @@ export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategories
             cursor: 'pointer'
         }
     });
-
+    const content = useCss({
+        paddingLeft: '10px',
+        paddingTop: '10px',
+        paddingBottom: '10px',
+        width: '100%',
+        alignItems: 'left',
+        alignContent: 'left',
+        justifyContent: 'left',
+        color: '#fff',
+        '&:hover': {
+            color: '#fff',
+            backgroundColor: '#010101'
+        }
+    });
     return (
         <Accordion defaultActiveKey={category.categoryId} key={category.categoryId}>
             <Accordion.Toggle
@@ -43,15 +57,17 @@ export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategories
                 </h6>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={category.categoryId}>
-                <>
+                <Card.Body style={{ padding: 0 }} key={category.categoryId}>
                     {menu.children
-                        .filter((child) => !(child.subCategoryId === category.categoryId))
+                        .filter((child) => child.subCategoryId === category.categoryId)
                         .map((menuItem) => (
-                            <Card.Body key={menuItem.key}>
-                                <h6>{t(menuItem.key)}</h6>
-                            </Card.Body>
+                            <LinkContainer key={menu.key + menuItem.key} to={menu.key + menuItem.link}>
+                                <Nav.Link className={content}>
+                                    <h6>{t(menuItem.key)}</h6>
+                                </Nav.Link>
+                            </LinkContainer>
                         ))}
-                </>
+                </Card.Body>
             </Accordion.Collapse>
         </Accordion>
     );

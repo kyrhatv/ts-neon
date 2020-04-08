@@ -1,0 +1,119 @@
+#maintext.main-content {
+    height: 100%;
+    z-index: 1000;
+    margin-left: 70px;
+}
+
+#sidebar-menu .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon {
+    width: 220px;
+}
+
+#sidebar-menu .e-menu-wrapper ul .e-menu-item:hover .e-menu-item.e-focused:hover {
+    background-color: #3e454c !important;
+}
+
+/* end of vertical-menu styles */
+/* end of menu styles */
+
+/* Sidebar styles */
+/* docksidebar styles */
+.dock-menu .e-menu-wrapper ul .e-menu-item .e-caret,
+#header .search-icon,
+#sidebar-menu .action-btn,
+#header .e-menu-item .e-caret,
+#sidebar-menu .e-menu-wrapper ul .e-menu-item .e-caret,
+.dock-menu .e-menu-wrapper ul .e-menu-item {
+    color: #fff !important;
+}
+
+.dock-menu.e-close .e-menu-wrapper ul .e-menu-item {
+    width: 50px;
+}
+
+.dock-menu.e-close ul .e-menu-item.e-menu-caret-icon {
+    padding-right: 12px;
+}
+
+#sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item .e-caret,
+#sidebar-menu.e-dock.e-close .main-menu-header,
+#sidebar-menu.e-dock.e-close .action-btn {
+    display: none;
+}
+
+#sidebar-menu.e-dock.e-close .e-menu-wrapper ul .e-menu-item.e-menu-caret-icon,
+#sidebar-menu.e-dock.e-close .e-menu-wrapper ul.e-vertical {
+    min-width: 0px;
+    width: 50px !important;
+}
+
+#sidebar-menu.e-dock.e-close .e-menu-wrapper ul.e-menu {
+    font-size: 0px;
+}
+
+#sidebar-menu.e-dock.e-close .e-menu-item .e-menu-icon {
+    font-size: 20px;
+    padding: 0px;
+}
+
+#sidebar-menu,
+#sidebar-menu ul,
+#header ul,
+.dock-menu .e-menu-wrapper,
+.dock-menu.e-menu-wrapper,
+.dock-menu.e-menu-wrapper ul > *,
+.dock-menu .e-menu-wrapper ul > * {
+    background-color: #33383e !important;
+    color: #fff !important;
+    overflow: hidden;
+}
+
+/* end of docksidebar styles */
+/*end of  Sidebar styles */
+
+/*button styles */
+#sidebar-menu .action-btn {
+    margin-left: 16px;
+    width: 165px;
+    height: 30px;
+    font-size: 13px;
+    border-radius: 5px;
+}
+
+#sidebar-menu .action-btn {
+    background-color: #1784c7;
+}
+
+/*end of button styles */
+.sb-content-tab #wrapper {
+    display: none;
+}
+
+.center {
+    text-align: center;
+    display: none;
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.sb-content-tab .center {
+    display: block;
+}
+
+/* .ej2-new .sb-header,
+.ej2-new .sb-bread-crumb,
+.ej2-new #action-description,
+.ej2-new #description-section,
+.ej2-new #description {
+    display: none;
+} */
+
+.ej2-new .container-fluid,
+.ej2-new .container-fluid .control-section,
+#sidebar-section,
+body,
+.sidebar-menu .col-md-12 {
+    padding: 0px;
+}
+
+/*icon styles */

@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import { getCurrentModule } from '../MainMenuSlice';
 import { useCss } from 'react-use';
 import { Col, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
+
 import { MultipleCategoriesMenuContent } from './MultipleCategoriesMenuContent';
 
 export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
@@ -37,7 +39,6 @@ export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
     });
 
     const menu = struct.find((module) => module.key === currentModule);
-
     if (menu === undefined) {
         return null;
     }
@@ -47,6 +48,7 @@ export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
             {menu.hasSubCategories ? (
                 <div>
                     {menu.subCategories.map((category) => {
+                        
                         return <MultipleCategoriesMenuContent category={category} menu={menu} />;
                     })}
                 </div>
@@ -56,12 +58,24 @@ export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
                         <h6>{t(menu.key)}</h6>
                     </Col>
                     <Nav defaultActiveKey="/home" className="flex-column">
-                        {menu.children.map((menuItems) => {
-                            return (
-                                <Nav.Link className={content} href="#">
-                                    <h6>{t(menuItems.key)}</h6>
-                                </Nav.Link>
-                            );
+                        {menu.children.map((menuItem) => {
+                            if (menu.children == null) {
+                                return (
+                                    <LinkContainer key={menuItem.key} to={menuItem.link}>
+                                        <Nav.Link className={content}>
+                                            <h6>{t(menuItem.key)}</h6>
+                                        </Nav.Link>
+                                    </LinkContainer>
+                                );
+                            } else {
+                                return (
+                                    <LinkContainer key={menu.key + menuItem.key} to={menu.key + menuItem.link}>
+                                        <Nav.Link className={content}>
+                                            <h6>{t(menuItem.key)}</h6>
+                                        </Nav.Link>
+                                    </LinkContainer>
+                                );
+                            }
                         })}
                     </Nav>
                 </>

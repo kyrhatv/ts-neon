@@ -27,13 +27,13 @@ export const RootStruct: NavOption[] = [
                 key: 'schedules',
                 link: '/schedules',
                 subCategoryId: 'schedules'
-                //                roles: Permissions.DAYTODAY_SCHEDULER_MODULE
+                //roles: Permissions.DAYTODAY_SCHEDULER_MODULE
             },
             {
                 key: 'lines',
                 link: '/lines',
                 subCategoryId: 'schedules'
-                //                roles: Permissions.DAYTODAY_SCHEDULER_MODULE
+                //roles: Permissions.DAYTODAY_SCHEDULER_MODULE
             },
             {
                 key: 'replacements',
