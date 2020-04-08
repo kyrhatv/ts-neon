@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MainMenu } from '../components/MainMenuSidebar/MainMenu';
-
 import { RootStruct } from './RootStruct';
 import Planning from '../modules/planning';
 import Spells from '../modules/spells';

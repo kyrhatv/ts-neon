@@ -1,24 +1,80 @@
-import { NavOption } from '../components/DynamicNavbar/DynamicNavbar';
+import { NavOption } from '../hs-interfaces/Root-Struct';
 
 export const RootStruct: NavOption[] = [
     {
         key: 'planning',
         link: '/planning',
         iconName: 'calendar-alt',
+        hasSubCategories: true,
+        subCategories: [
+            {
+                categoryId: 'schedules',
+                sortOrder: 0
+            },
+            {
+                categoryId: 'scheduleProccess',
+                sortOrder: 1
+            }
+        ],
         children: [
             {
                 key: 'dashboard',
-                link: '/dashboard'
+                link: '/dashboard',
+                subCategoryId: 'schedules'
                 // roles: Permissions.DAYTODAY_DASHBOARD_MODULE
             },
             {
                 key: 'schedules',
-                link: '/schedules'
+                link: '/schedules',
+                subCategoryId: 'schedules'
                 //                roles: Permissions.DAYTODAY_SCHEDULER_MODULE
             },
             {
+                key: 'lines',
+                link: '/lines',
+                subCategoryId: 'schedules'
+                //                roles: Permissions.DAYTODAY_SCHEDULER_MODULE
+            },
+            {
+                key: 'replacements',
+                link: '/replacements',
+                subCategoryId: 'schedules'
+                //                roles: Permissions.DAYTODAY_SCHEDULER_MODULE
+            },
+            {
+                key: 'replacementsByEmployee',
+                link: '/replacementsByEmployee',
+                subCategoryId: 'schedules'
+                //                roles: Permissions.DAYTODAY_SCHEDULER_MODULE
+            },
+            {
+                key: 'quartRequirements',
+                link: '/quartRequirements',
+                subCategoryId: 'schedules'
+                //                roles: Permissions.DAYTODAY_SCHEDULER_MODULE
+            },
+            {
+                key: 'masterSchedules',
+                link: '/masterSchedules',
+                subCategoryId: 'scheduleProccess'
+                // roles: Permissions.ORDER_MODULE
+            },
+            {
                 key: 'order',
-                link: '/order'
+                link: '/order',
+                subCategoryId: 'scheduleProccess'
+                // roles: Permissions.ORDER_MODULE
+            },
+            {
+                key: 'positions',
+                link: '/positions',
+                subCategoryId: 'scheduleProccess'
+                // roles: Permissions.ORDER_MODULE
+            },
+            {
+                key: 'project',
+                link: '/project',
+                subCategoryId: 'scheduleProccess'
                 // roles: Permissions.ORDER_MODULE
             }
         ]
@@ -27,37 +83,50 @@ export const RootStruct: NavOption[] = [
         key: 'timesheets',
         link: '/timesheets',
         iconName: 'clock',
+        hasSubCategories: false,
+        subCategories: null,
         children: [
             {
                 key: 'dashboard',
-                link: '/dashboard'
+                link: '/dashboard',
+                subCategoryId: null
             },
             {
                 key: 'summary',
-                link: '/summary'
+                link: '/summary',
+                subCategoryId: null
             },
             {
                 key: 'details',
-                link: '/details'
+                link: '/details',
+                subCategoryId: null
             },
             {
-                key: 'sidebar.timesheets.period',
-                link: '/presence-employe/period'
+                key: 'period',
+                link: '/presence-employe/period',
+                subCategoryId: null
+
                 // roles: Permissions.EMPLOYEE_PRESENCE_MODULE
             },
             {
-                key: 'sidebar.timesheets.corrections',
-                link: '/presence-employe/corrections'
+                key: 'correction',
+                link: '/presence-employe/corrections',
+                subCategoryId: null
+
                 // roles: Permissions.EMPLOYEE_PRESENCE_MODULE
             },
             {
-                key: 'sidebar.timesheets.batch-entry',
-                link: '/presence-employe/batch-entry'
+                key: 'batchEntry',
+                link: '/presence-employe/batch-entry',
+                subCategoryId: null
+
                 // roles: Permissions.EMPLOYEE_PRESENCE_BATCH_MODULE
             },
             {
-                key: 'sidebar.timesheets.operation',
-                link: '/presence-employe/history'
+                key: 'history',
+                link: '/presence-employe/history',
+                subCategoryId: null
+
                 // roles: Permissions.EMPLOYEE_PRESENCE_HISTORY
             }
         ]
@@ -66,16 +135,22 @@ export const RootStruct: NavOption[] = [
         key: 'organisation',
         link: '/organisation',
         iconName: 'sitemap',
+        hasSubCategories: false,
+        subCategories: null,
+
         // roles: [...Permissions.EMPLOYEE_MODULE, ...Permissions.HIERARCHY_MODULE],
         children: [
             {
                 key: 'employees',
-                link: '/employees'
+                link: '/employees',
+                subCategoryId: null
+
                 // roles: Permissions.EMPLOYEE_MODULE
             },
             {
-                key: 'herarchy',
-                link: '/herarchy'
+                key: 'hierarchy',
+                link: '/herarchy',
+                subCategoryId: null
             }
         ]
     },
@@ -83,16 +158,22 @@ export const RootStruct: NavOption[] = [
         key: 'analyze',
         link: '/analyze',
         iconName: 'chart-line',
+        hasSubCategories: false,
+        subCategories: null,
+
         // roles: [...Permissions.EMPLOYEE_MODULE, ...Permissions.HIERARCHY_MODULE],
         children: [
             {
-                key: 'bi-report-config',
-                link: '/report-configuration'
+                key: 'publication',
+                link: '/report-configuration',
+                subCategoryId: null
+
                 // roles: Permissions.EMPLOYEE_MODULE
             },
             {
                 key: 'reports',
-                link: '/reports'
+                link: '/reports',
+                subCategoryId: null
             }
         ]
     },
@@ -100,6 +181,9 @@ export const RootStruct: NavOption[] = [
         key: 'request',
         link: '/request',
         iconName: 'reply-all',
+        hasSubCategories: false,
+        subCategories: null,
+
         // roles: [
         //     ...Permissions.REQUEST_LIST_MODULE,
         //     ...Permissions.REQUEST_DECLARATION_MODULE,
@@ -107,23 +191,27 @@ export const RootStruct: NavOption[] = [
         // ],
         children: [
             {
-                key: 'request-list',
-                link: '/request-list'
+                key: 'list',
+                link: '/request-list',
+                subCategoryId: null
                 // roles: Permissions.EMPLOYEE_MODULE
             },
             {
-                key: 'request-declaration',
-                link: '/request-declaration'
+                key: 'declaration',
+                link: '/request-declaration',
+                subCategoryId: null
                 // roles: Permissions.EMPLOYEE_MODULE
             },
             {
-                key: 'declaration-abscence',
-                link: '/request-declaration'
+                key: 'declaration',
+                link: '/request-declaration',
+                subCategoryId: null
                 // roles: Permissions.EMPLOYEE_MODULE
             },
             {
-                key: 'declaration-abscence-simplified',
-                link: '/request-absence-simplified'
+                key: 'simplifiedAbscence',
+                link: '/request-absence-simplified',
+                subCategoryId: null
                 // roles: Permissions.EMPLOYEE_MODULE
             }
         ]
@@ -132,6 +220,9 @@ export const RootStruct: NavOption[] = [
         key: 'parameters',
         link: '/parameter',
         iconName: 'cog',
+        hasSubCategories: false,
+        subCategories: null,
+
         // roles: Permissions.PARAMETER_MODULE
         children: []
     }

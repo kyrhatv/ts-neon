@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 import Icon from '../../Icon/Icon';
 import logo from '../../../assets/TimeSphere_icon_30.svg';
-import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { NavStruct } from '../../../hs-interfaces/Root-Struct';
+
 import './style.css';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,21 +15,6 @@ import { toggleMenu, getMenu } from '../MainMenuSlice';
 
 import { useCss } from 'react-use';
 
-export interface NavStruct {
-    struct: NavOption[];
-}
-
-export interface NavOption {
-    key: string;
-    link: string;
-    iconName: IconName;
-    children: NavItem[] | null;
-}
-
-export interface NavItem {
-    key: string;
-    link: string;
-}
 const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
     const menuState = useSelector(getMenu);

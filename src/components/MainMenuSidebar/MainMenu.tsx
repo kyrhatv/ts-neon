@@ -1,30 +1,14 @@
 import React from 'react';
 import { FunctionComponent } from 'react';
-import './sidebar-menu.css';
+// import './sidebar-menu.css';
 import SideBar from '../sf-sidebar';
 import IconBar from './IconBar';
-import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { MenuContent } from './MenuContent';
+import { NavStruct } from '../../hs-interfaces/Root-Struct';
+import { MenuContent } from './MenuContent/MenuContent';
 import { usePrevious } from '../../utils/hs-hooks';
 
 import { useSelector } from 'react-redux';
-import { getCurrentModule, getIsShown } from '../MainMenuSidebar/MainMenuSlice';
-
-export interface NavStruct {
-    struct: NavOption[];
-}
-
-export interface NavOption {
-    key: string;
-    link: string;
-    iconName: IconName;
-    children: NavItem[] | null;
-}
-
-export interface NavItem {
-    key: string;
-    link: string;
-}
+import { getCurrentModule, getIsShown } from './MainMenuSlice';
 
 export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
     const isShownfromstate = useSelector(getIsShown);
@@ -39,7 +23,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
                 <IconBar struct={struct}></IconBar>
             </div>
             <div className="slider-menu">
-                <SideBar isShown={isShown} showBackdrop={false} position={'Left'} type={'Over'} width={'220px'}>
+                <SideBar isShown={isShown} showBackdrop={false} position={'Left'} type={'Over'} width={'250px'}>
                     <MenuContent struct={struct} />
                 </SideBar>
             </div>

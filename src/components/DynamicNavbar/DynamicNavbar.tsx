@@ -3,28 +3,9 @@ import { FunctionComponent } from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useTranslation } from 'react-i18next';
-import {
-    IconName
-} from '@fortawesome/fontawesome-svg-core';
-
+import { NavStruct } from '../../hs-interfaces/Root-Struct';
 import logo from '../../assets/TimeSphere_icon_30.svg';
 import { useCss } from 'react-use';
-
-export interface NavStruct {
-    struct: NavOption[];
-}
-
-export interface NavOption {
-    key: string;
-    link: string;
-    iconName: IconName;
-    children: NavItem[] | null;
-}
-
-export interface NavItem {
-    key: string;
-    link: string;
-}
 
 export const DynamicNavbar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
@@ -33,6 +14,7 @@ export const DynamicNavbar: FunctionComponent<NavStruct> = ({ struct }) => {
         backgroundColor: '#000000',
         color: 'white'
     });
+
     return (
         <>
             <Navbar style={{ zIndex: 10000 }} collapseOnSelect expand="lg" className={style} variant="dark">
