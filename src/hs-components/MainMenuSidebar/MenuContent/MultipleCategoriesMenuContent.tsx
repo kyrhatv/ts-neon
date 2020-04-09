@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FunctionComponent } from 'react';
-import { NavOption, SubCategory } from '../../../hs-interfaces/Root-Struct';
+import { NavOption, SubCategory } from '../../../app-main/utils/RootStructInterface';
 import { useTranslation } from 'react-i18next';
 import { useCss } from 'react-use';
 import { LinkContainer } from 'react-router-bootstrap';

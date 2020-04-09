@@ -1,6 +1,6 @@
 import React from 'react';
 import { FunctionComponent } from 'react';
-import { NavStruct } from '../../../hs-interfaces/Root-Struct';
+import { NavStruct } from '../../../app-main/utils/RootStructInterface';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getCurrentModule } from '../MainMenuSlice';

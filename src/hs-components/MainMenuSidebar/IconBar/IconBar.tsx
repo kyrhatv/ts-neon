@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import Icon from '../../Icon/Icon';
 import logo from '../../../assets/TimeSphere_icon_30.svg';
-import { NavStruct } from '../../../hs-interfaces/Root-Struct';
+import { NavStruct } from '../../../app-main/utils/RootStructInterface';
 
 import './style.css';
 

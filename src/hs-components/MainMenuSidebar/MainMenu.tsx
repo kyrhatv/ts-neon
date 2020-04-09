@@ -2,7 +2,7 @@ import React from 'react';
 import { FunctionComponent } from 'react';
 import SideBar from '../sf-sidebar';
 import IconBar from './IconBar';
-import { NavStruct } from '../../hs-interfaces/Root-Struct';
+import { NavStruct } from '../../app-main/utils/RootStructInterface';
 import { MenuContent } from './MenuContent/MenuContent';
 import { usePrevious } from '../../hs-utils/hs-hooks';
 

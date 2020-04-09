@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { NavStruct } from '../../hs-interfaces/Root-Struct';
+import { NavStruct } from '../../app-main/utils/RootStructInterface';
 import logo from '../../assets/TimeSphere_icon_30.svg';
 import { useCss } from 'react-use';
 
