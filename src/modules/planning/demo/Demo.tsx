@@ -1,10 +1,7 @@
 import * as React from 'react';
-import { PageContainer, PageHeader, PageContent } from '../../../components/Layout';
-import { useTranslation } from 'react-i18next';
+import { PageContainer, PageContent } from '../../../components/Layout';
 
 export function Demo() {
-    const [t] = useTranslation();
-
     return (
         <PageContainer pageName={'home'}>
             <>
@@ -18,8 +15,8 @@ export function Demo() {
                                 <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet
                                 est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,{' '}
                                 <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt
-                                condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.{' '}
-                                <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.
+                                condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. in turpis
+                                pulvinar facilisis. Ut felis.
                             </p>
                             <h2>Header Level 2</h2>
                             <ol>

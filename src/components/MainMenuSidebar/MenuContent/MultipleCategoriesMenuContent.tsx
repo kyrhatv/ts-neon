@@ -60,13 +60,15 @@ export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategories
                 <Card.Body style={{ padding: 0 }} key={category.categoryId}>
                     {menu.children
                         .filter((child) => child.subCategoryId === category.categoryId)
-                        .map((menuItem) => (
-                            <LinkContainer key={menu.key + menuItem.key} to={menu.key + menuItem.link}>
-                                <Nav.Link className={content}>
-                                    <h6>{t(menuItem.key)}</h6>
-                                </Nav.Link>
-                            </LinkContainer>
-                        ))}
+                        .map((menuItem) => {
+                            return (
+                                <LinkContainer key={menu.key + menuItem.key} to={menu.link + menuItem.link}>
+                                    <Nav.Link className={content}>
+                                        <h6>{t(menuItem.key)}</h6>
+                                    </Nav.Link>
+                                </LinkContainer>
+                            );
+                        })}
                 </Card.Body>
             </Accordion.Collapse>
         </Accordion>

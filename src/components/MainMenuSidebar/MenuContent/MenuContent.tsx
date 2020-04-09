@@ -7,7 +7,6 @@ import { getCurrentModule } from '../MainMenuSlice';
 import { useCss } from 'react-use';
 import { Col, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-
 import { MultipleCategoriesMenuContent } from './MultipleCategoriesMenuContent';
 
 export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
@@ -48,7 +47,6 @@ export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
             {menu.hasSubCategories ? (
                 <div>
                     {menu.subCategories.map((category) => {
-                        
                         return <MultipleCategoriesMenuContent category={category} menu={menu} />;
                     })}
                 </div>
@@ -69,7 +67,7 @@ export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
                                 );
                             } else {
                                 return (
-                                    <LinkContainer key={menu.key + menuItem.key} to={menu.key + menuItem.link}>
+                                    <LinkContainer key={menu.key + menuItem.key} to={menu.link + menuItem.link}>
                                         <Nav.Link className={content}>
                                             <h6>{t(menuItem.key)}</h6>
                                         </Nav.Link>
