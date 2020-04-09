@@ -2,9 +2,9 @@ import React from 'react';
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { Counter } from './test/Counter';
 import { Demo } from './demo/Demo';
-import { RootStruct } from '../../../src/app/RootStruct';
+import { RootStruct } from '../../app/RootStruct';
 
-import { DynamicBreadcrumbs } from '../../components/DynamicBreadcrumbs/DynamicBreadcrumbs';
+import { DynamicBreadcrumbs } from '../../../hs-components/DynamicBreadcrumbs/DynamicBreadcrumbs';
 
 const Planning = (routerProps: { match: { path: any } }) => {
     let location = useLocation();

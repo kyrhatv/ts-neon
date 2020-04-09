@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PageContainer, PageContent } from '../../../components/Layout';
+import { PageContainer, PageContent } from '../../../../hs-components/Layout';
 
 export function Demo() {
     return (

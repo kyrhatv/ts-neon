@@ -4,7 +4,7 @@ import SideBar from '../sf-sidebar';
 import IconBar from './IconBar';
 import { NavStruct } from '../../hs-interfaces/Root-Struct';
 import { MenuContent } from './MenuContent/MenuContent';
-import { usePrevious } from '../../utils/hs-hooks';
+import { usePrevious } from '../../hs-utils/hs-hooks';
 
 import { useSelector } from 'react-redux';
 import { getCurrentModule, getIsShown } from './MainMenuSlice';

@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { MainMenu } from '../components/MainMenuSidebar/MainMenu';
+import { MainMenu } from '../../hs-components/MainMenuSidebar/MainMenu';
 import { RootStruct } from './RootStruct';
-import Planning from '../modules/planning';
-import Spells from '../modules/spells';
+import Planning from '../features/planning';
+import Spells from '../features/spells';
 
 import './style.css';
 

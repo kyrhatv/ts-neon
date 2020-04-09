@@ -1,4 +1,4 @@
-import { NavOption } from '../hs-interfaces/Root-Struct';
+import { NavOption } from '../../hs-interfaces/Root-Struct';
 
 export const RootStruct: NavOption[] = [
     {

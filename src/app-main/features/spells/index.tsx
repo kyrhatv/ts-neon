@@ -3,11 +3,11 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 // import { Mage } from '../planning/demo/Demo';
 import { Priest } from './priest/Priest';
 import { RootStruct } from '../../app/RootStruct';
-import { DynamicBreadcrumbs } from '../../components/DynamicBreadcrumbs/DynamicBreadcrumbs';
+import { DynamicBreadcrumbs } from '../../../hs-components/DynamicBreadcrumbs/DynamicBreadcrumbs';
 
 const Spells = (routerProps: { match: { path: any } }) => {
     let location = useLocation();
-    let folderPaths = location.pathname.split('/').filter(el => el !== '');
+    let folderPaths = location.pathname.split('/').filter((el) => el !== '');
 
     return (
         <>

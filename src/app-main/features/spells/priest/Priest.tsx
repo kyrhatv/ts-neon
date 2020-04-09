@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
-import Icon from '../../../components/Icon/Icon';
-import TextToSpeech from '../../../components/TextToSpeech/TextToSpeech';
+import Icon from '../../../../hs-components/Icon/Icon';
+import TextToSpeech from '../../../../hs-components/TextToSpeech/TextToSpeech';
 import { useTranslation } from 'react-i18next';
 
-import { PageContainer, PageHeader, PageContent } from '../../../components/Layout';
+import { PageContainer, PageHeader, PageContent } from '../../../../hs-components/Layout';
 
 export function Priest() {
     const [t] = useTranslation();

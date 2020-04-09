@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { FunctionComponent } from 'react';
 import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
-import { usePrevious } from '../../utils/hs-hooks';
+import { usePrevious } from '../../hs-utils/hs-hooks';
 
 import './sidebar-menu.css';
 
