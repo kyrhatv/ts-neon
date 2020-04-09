@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@syncfusion/ej2-base/styles/bootstrap4.css';
 import '@syncfusion/ej2-react-layouts/styles/bootstrap4.css';
 import Root from './app-main/app/Root';
-import './i18n';
+import './translations/i18n';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { store } from './app-main/app/store';

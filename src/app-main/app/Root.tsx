@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { MainMenu } from '../../hs-components/MainMenuSidebar/MainMenu';
 import { RootStruct } from './RootStruct';
 import Planning from '../features/planning';
-import Spells from '../features/spells';
+import Timesheets from '../features/timesheets';
 
 import './style.css';
 
@@ -18,10 +18,7 @@ const Root: FunctionComponent = () => {
                             <p>Home</p>
                         </Route>
                         <Route path="/planning" component={Planning} />
-                        <Route path="/request" component={Spells} />
-                        <Route path="/timesheets">
-                            <p>Timesheets</p>
-                        </Route>
+                        <Route path="/timesheets" component={Timesheets} />
                         <Route path="/about">
                             <p>About</p>
                         </Route>
