@@ -22,7 +22,7 @@ export const ConfigSidebar: FunctionComponent = () => {
             showBackdrop={false}
             position={'Right'}
             type={'Push'}
-            width={'250px'}>
+            width={'200px'}>
             <h1>Hello</h1>
         </SideBar>
     );

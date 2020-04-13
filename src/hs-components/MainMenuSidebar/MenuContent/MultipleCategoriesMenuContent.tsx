@@ -36,7 +36,7 @@ export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategories
                 </h6>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey={category.categoryId}>
-                <Card.Body style={{ padding: 5 }} key={category.categoryId}>
+                <Card.Body style={{ padding: 2 }} key={category.categoryId}>
                     {menu.children
                         .filter((child) => child.subCategoryId === category.categoryId)
                         .map((menuItem) => {

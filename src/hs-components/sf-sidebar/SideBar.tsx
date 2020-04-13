@@ -1,5 +1,5 @@
-import React, { useRef} from 'react';
-    // , useEffect, useState 
+import React, { useRef } from 'react';
+// , useEffect, useState
 import { FunctionComponent } from 'react';
 import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
 import { usePrevious } from '../../hs-utils/hs-hooks';
@@ -85,24 +85,38 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                 ref={sidebarRef}
                 width={width}
                 target={'.content'}>
-                {/* <div className="main-menu"> */}
+                <div className="test">
                     <Col>
                         <Row>{children}</Row>
-                        <Row>
-                            <Col md={3}></Col>
-                            <Col md={3}></Col>
-                            <Col md={3}></Col>
-                            <Col md={3}>
-                                <Button
-                                    variant="outline-primary"
-                                    // onClick={doThis}
-                                >
-                                    <Icon iconName="thumbtack" />
-                                </Button>
-                            </Col>
-                        </Row>
                     </Col>
-                {/* </div> */}
+                    <Row className="footer">
+                        {position === 'Left' ? (
+                            <>
+                                <Col md={9}></Col>
+                                <Col md={3}>
+                                    <Button
+                                        variant="outline-primary"
+                                        // onClick={doThis}
+                                    >
+                                        <Icon iconName="thumbtack" />
+                                    </Button>
+                                </Col>
+                            </>
+                        ) : (
+                            <>
+                                <Col md={3}>
+                                    <Button
+                                        variant="outline-primary"
+                                        // onClick={doThis}
+                                    >
+                                        <Icon iconName="thumbtack" />
+                                    </Button>
+                                </Col>
+                                <Col md={9}></Col>
+                            </>
+                        )}
+                    </Row>
+                </div>
             </SidebarComponent>
         </>
     );
