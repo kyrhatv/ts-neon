@@ -1,0 +1,11 @@
+.hamburger-button {
+    text-align: right;
+}
+
+.hamburger-button .button:focus {
+    margin: auto;
+}
+
+.header-container {
+    background-color: #282c34;
+}

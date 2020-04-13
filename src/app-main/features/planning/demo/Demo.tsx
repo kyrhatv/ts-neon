@@ -5,7 +5,7 @@ export function Demo() {
     return (
         <PageContainer pageName={'home'}>
             <>
-                <PageContent pageName={'home'}>
+                <PageContent>
                     <>
                         <div className="col-lg-12">
                             <p>

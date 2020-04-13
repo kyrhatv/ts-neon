@@ -1,4 +1,6 @@
 import React from 'react';
+
+// , { useState, useEffect } 
 import { FunctionComponent } from 'react';
 import SideBar from '../sf-sidebar';
 import IconBar from './IconBar';
@@ -7,10 +9,20 @@ import { MenuContent } from './MenuContent/MenuContent';
 import { usePrevious } from '../../hs-utils/hs-hooks';
 
 import { useSelector } from 'react-redux';
-import { getCurrentModule, getIsShown } from './MainMenuSlice';
+import { getCurrentModule, getIsShown, getIsPinned } from './MainMenuSlice';
 
 export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
     const isShownfromstate = useSelector(getIsShown);
+    const isPinned = useSelector(getIsPinned);
+
+    // const [state, setstate] = useState('Over');
+
+    const sidebarType = isPinned ? 'Over' : 'Push';
+
+    // useEffect(() => {
+    //     sidebarType = isPinned ? "Over" : "Push";
+    // }, [isPinned]);
+
     const currentModule = useSelector(getCurrentModule);
     const prevModule = usePrevious(currentModule);
 
@@ -18,14 +30,16 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
 
     return (
         <>
-            <div className="left-icon-menu">
-                <IconBar struct={struct}></IconBar>
-            </div>
-            <div className="slider-menu">
-                <SideBar isShown={isShown} showBackdrop={false} position={'Left'} type={'Push'} width={'250px'}>
-                    <MenuContent struct={struct} />
-                </SideBar>
-            </div>
+            <IconBar struct={struct}></IconBar>
+            <SideBar
+                id="main-menu"
+                isShown={isShown}
+                showBackdrop={false}
+                position={'Left'}
+                type={sidebarType}
+                width={'250px'}>
+                <MenuContent struct={struct} />
+            </SideBar>
         </>
     );
 };

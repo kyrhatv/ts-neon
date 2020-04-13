@@ -31,7 +31,9 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const toggleMenuHandler = (moduleKey) => {
         const response = moduleKey !== currentModule && moduleKey !== null ? true : false;
         const module = response === false ? undefined : moduleKey;
-        dispatch(toggleMenu({ id: 'LEFT_MENU', isShown: response, currentModule: module }));
+        dispatch(
+            toggleMenu({ id: 'LEFT_MENU', isShown: response, currentModule: module, isPinned: menuState.isPinned })
+        );
     };
 
     const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });
@@ -53,6 +55,7 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
                         <OverlayTrigger
                             key={module.key}
                             placement="right"
+                            delay={{ show: 250, hide: 200 }}
                             overlay={<Tooltip id={module.key}>{t(module.key)}</Tooltip>}>
                             <Nav.Item className={linkstyle}>
                                 <Nav.Link onClick={() => toggleMenuHandler(module.key)}>

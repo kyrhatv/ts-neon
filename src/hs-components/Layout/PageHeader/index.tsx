@@ -1,26 +1,46 @@
 import * as React from 'react';
-import { useCss } from 'react-use';
 import { FunctionComponent } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
+import { DynamicBreadcrumbs } from '../../DynamicBreadcrumbs/DynamicBreadcrumbs';
+import { Row, Col, Button } from 'react-bootstrap';
+import { RootStruct } from '../../../app-main/app/RootStruct';
+import { useDispatch, useSelector } from 'react-redux';
 
-export interface IconProps {
-    iconName: string;
-    headerName: string;
-}
+import { toggleOptionsMenu, getOptionMenu } from '../../ConfigSidebar/ConfigSidebarSlice';
 
-const PageHeader: FunctionComponent<IconProps> = ({ iconName, headerName }) => {
-    const style = useCss({
-        paddingBottom: '15px',
-    });
+import './style.css';
+import Icon from '../../Icon/Icon';
+
+const PageHeader: FunctionComponent = () => {
+    let location = useLocation();
+    let folderPaths = location.pathname.split('/').filter((el) => el !== '');
+    const dispatch = useDispatch();
+    const menuState = useSelector(getOptionMenu);
+
+    const toggleOptionsMenuhandler = () => {
+        dispatch(
+            toggleOptionsMenu({
+                id: menuState.id,
+                isShown: !menuState.isShown,
+                currentModule: menuState.currentModule,
+                isPinned: menuState.isPinned
+            })
+        );
+    };
 
     return (
-        <Container className={style} fluid>
-            <Row>
+        <div className="header-container">
+            <Row className="align-items-center">
                 <Col md={11}>
-                    <h1>{headerName}</h1>
+                    <DynamicBreadcrumbs struct={RootStruct} folder={folderPaths} />
+                </Col>
+                <Col md={1}>
+                    <Button variant="outline-primary" onClick={toggleOptionsMenuhandler}>
+                        <Icon iconName="sliders-h"></Icon>
+                    </Button>
                 </Col>
             </Row>
-        </Container>
+        </div>
     );
 };
 

@@ -4,19 +4,19 @@ import { FunctionComponent } from 'react';
 import { Container } from 'react-bootstrap';
 
 export interface PageContent {
-    pageName: string;
     children: JSX.Element;
 }
 
-const PageContent: FunctionComponent<PageContent> = ({ pageName, children }) => {
+const PageContent: FunctionComponent<PageContent> = ({ children }) => {
     const className = useCss({
         height: '100%',
-        minHeight: '100%'
+        minHeight: '100%',
+        marginTop: '15px'
     });
 
     return (
         <Container className={className} fluid>
-            {children}
+            <div>{children}</div>
         </Container>
     );
 };
