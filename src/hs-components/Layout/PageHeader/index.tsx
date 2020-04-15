@@ -27,9 +27,12 @@ const PageHeader: FunctionComponent = () => {
             })
         );
     };
-
     return (
-        <div className="header-container">
+        // <div ref={ref} style={{ position: 'relative' }}>
+        //     <p style={{ textAlign: 'center', color: isSliding ? 'red' : 'green' }}>{Math.round(state.value * 100)}%</p>
+        //     <div style={{ position: 'absolute', left: pos }}>🎚</div>
+        // </div>
+        <div id="myHeader" className="header-container">
             <Row className="align-items-center">
                 <Col md={11}>
                     <DynamicBreadcrumbs struct={RootStruct} folder={folderPaths} />

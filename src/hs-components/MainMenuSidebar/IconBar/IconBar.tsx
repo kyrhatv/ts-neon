@@ -6,22 +6,22 @@ import { useTranslation } from 'react-i18next';
 import Icon from '../../Icon/Icon';
 import logo from '../../../assets/TimeSphere_icon_30.svg';
 import { NavStruct } from '../../../app-main/utils/RootStructInterface';
+import { RootState } from '../../../app-main/app/store';
 
 import './style.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { toggleMenu, getMenu } from '../MainMenuSlice';
+import { selectById, updateMenu } from '../../sf-sidebar/menusSlice';
 
 import { useCss } from 'react-use';
 
 const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
-    const menuState = useSelector(getMenu);
-
-    const currentModule = menuState.currentModule;
-
     const dispatch = useDispatch();
+
+    const menuState = useSelector((state: RootState) => selectById(state, 'mainMenu'));
+    const currentModule = menuState.currentModule;
 
     const changeLanguage = () => {
         i18n.language === 'en' ? i18n.changeLanguage('fr') : i18n.changeLanguage('en');
@@ -31,9 +31,8 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const toggleMenuHandler = (moduleKey) => {
         const response = moduleKey !== currentModule && moduleKey !== null ? true : false;
         const module = response === false ? undefined : moduleKey;
-        dispatch(
-            toggleMenu({ id: 'LEFT_MENU', isShown: response, currentModule: module, isPinned: menuState.isPinned })
-        );
+
+        dispatch(updateMenu({ id: 'mainMenu', changes: { isShown: response, currentModule: module } }));
     };
 
     const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });

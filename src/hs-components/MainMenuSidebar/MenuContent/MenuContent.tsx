@@ -3,17 +3,21 @@ import { FunctionComponent } from 'react';
 import { NavStruct } from '../../../app-main/utils/RootStructInterface';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getCurrentModule } from '../MainMenuSlice';
 import { Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { MultipleCategoriesMenuContent } from './MultipleCategoriesMenuContent';
+
+import { RootState } from '../../../app-main/app/store';
+import { selectById } from '../../sf-sidebar/menusSlice';
 
 import './style.css';
 
 export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t] = useTranslation();
 
-    const currentModule = useSelector(getCurrentModule);
+    const menuState = useSelector((state: RootState) => selectById(state, 'mainMenu'));
+
+    const currentModule = menuState.currentModule;
 
     const menu = struct.find((module) => module.key === currentModule);
     if (menu === undefined) {

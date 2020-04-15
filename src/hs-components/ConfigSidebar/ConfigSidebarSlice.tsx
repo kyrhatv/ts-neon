@@ -8,7 +8,7 @@ type OptionsMenuState = {
 };
 
 const INITIAL_STATE: OptionsMenuState = {
-    id: 'LEFT_MENU',
+    id: 'mainMenu',
     isShown: false,
     currentModule: null,
     isPinned: false

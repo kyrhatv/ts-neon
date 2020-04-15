@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
-// , useEffect, useState
 import { FunctionComponent } from 'react';
 import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
 import { usePrevious } from '../../hs-utils/hs-hooks';
 import { Button, Row, Col } from 'react-bootstrap';
 
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-//  import { toggleMenu, getMenu } from '../MainMenuSidebar/MainMenuSlice';
+import { RootState } from '../../app-main/app/store';
+import { selectById } from './menusSlice';
 
 import './sidebar-menu.css';
 import Icon from '../Icon/Icon';
@@ -45,7 +45,10 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
     children
 }) => {
     // const dispatch = useDispatch();
-    // const menuState = useSelector(getMenu);
+
+    // const menuState = useSelector((state: RootState) => selectById(state, id));
+
+    // const menuState = useSelector((state) => getMenu(state, id));
 
     const prevIsShown = usePrevious(isShown);
     const sidebarRef = useRef(null);
@@ -59,24 +62,25 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
         sidebarRef.current.toggle();
     }
 
-    // const doThis = () => {
-    //     dispatch(
-    //         toggleMenu({
-    //             id: menuState.id,
-    //             isShown: menuState.isShown,
-    //             currentModule: menuState.currentModule,
-    //             isPinned: !menuState.isPinned
-    //         })
-    //     );
-    // };
-    // console.log(type);
+    const doThis = () => {
+
+        // dispatch(
+        //     toggleMenu({
+        //         id: menuState.id,
+        //         isShown: menuState.isShown,
+        //         currentModule: menuState.currentModule,
+        //         isPinned: !menuState.isPinned
+        //     })
+        // );
+    };
+
     return (
         <>
             <SidebarComponent
                 id={id}
                 className={'sidebar'}
-                type={'Push'}
-                // type={type}
+                // type={'Push'}
+                type={type}
                 created={onCreate}
                 style={{ visibility: visibilityValue }}
                 position={position}
@@ -94,10 +98,7 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                             <>
                                 <Col md={9}></Col>
                                 <Col md={3}>
-                                    <Button
-                                        variant="outline-primary"
-                                        // onClick={doThis}
-                                    >
+                                    <Button variant="outline-primary" onClick={doThis}>
                                         <Icon iconName="thumbtack" />
                                     </Button>
                                 </Col>
@@ -105,10 +106,7 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                         ) : (
                             <>
                                 <Col md={3}>
-                                    <Button
-                                        variant="outline-primary"
-                                        // onClick={doThis}
-                                    >
+                                    <Button variant="outline-primary" onClick={doThis}>
                                         <Icon iconName="thumbtack" />
                                     </Button>
                                 </Col>
