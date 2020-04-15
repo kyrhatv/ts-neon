@@ -42,6 +42,7 @@ export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
                     {menu.subCategories.map((category) => {
                         return (
                             <MultipleCategoriesMenuContent
+                                key={category.categoryId}
                                 clickHandler={clickHandler}
                                 category={category}
                                 menu={menu}

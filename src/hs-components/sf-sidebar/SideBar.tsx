@@ -4,11 +4,6 @@ import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
 import { usePrevious } from '../../hs-utils/hs-hooks';
 import { Button, Row, Col } from 'react-bootstrap';
 
-// import { useDispatch, useSelector } from 'react-redux';
-
-// import { RootState } from '../../app-main/app/store';
-// import { selectById } from './menusSlice';
-
 import './sidebar-menu.css';
 import Icon from '../Icon/Icon';
 
@@ -44,17 +39,12 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
     closeOnDocumentClick,
     children
 }) => {
-    // const dispatch = useDispatch();
-
-    // const menuState = useSelector((state: RootState) => selectById(state, id));
-
-    // const menuState = useSelector((state) => getMenu(state, id));
-
     const prevIsShown = usePrevious(isShown);
     const sidebarRef = useRef(null);
     const visibilityValue = isShown ? 'visible' : 'hidden';
 
     const onCreate = () => {
+        console.log('oncreate');
         sidebarRef.current.element.style.visibility = visibilityValue;
     };
 
@@ -62,56 +52,47 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
         sidebarRef.current.toggle();
     }
 
-    const doThis = () => {
-        // dispatch(
-        //     toggleMenu({
-        //         id: menuState.id,
-        //         isShown: menuState.isShown,
-        //         currentModule: menuState.currentModule,
-        //         isPinned: !menuState.isPinned
-        //     })
-        // );
-    };
+    const doThis = () => {};
 
     return (
         <>
             <SidebarComponent
                 id={id}
                 className={'sidebar'}
-                type={'Push'}
-                // type={type}
+                type={type}
                 created={onCreate}
                 style={{ visibility: visibilityValue }}
                 position={position}
-                // closeOnDocumentClick={true}
+                enableGestures={false}
+                closeOnDocumentClick={false}
                 showBackdrop={showBackdrop}
                 ref={sidebarRef}
                 width={width}
                 target={'.content'}>
-                    <Col>
-                        <Row>{children}</Row>
-                    </Col>
-                    <Row className="footer">
-                        {position === 'Left' ? (
-                            <>
-                                <Col md={9}></Col>
-                                <Col md={3}>
-                                    <Button variant="outline-primary" onClick={doThis}>
-                                        <Icon iconName="thumbtack" />
-                                    </Button>
-                                </Col>
-                            </>
-                        ) : (
-                            <>
-                                <Col md={3}>
-                                    <Button variant="outline-primary" onClick={doThis}>
-                                        <Icon iconName="thumbtack" />
-                                    </Button>
-                                </Col>
-                                <Col md={9}></Col>
-                            </>
-                        )}
-                    </Row>
+                <Col>
+                    <Row>{children}</Row>
+                </Col>
+                <Row className="footer">
+                    {position === 'Left' ? (
+                        <>
+                            <Col md={9}></Col>
+                            <Col md={3}>
+                                <Button variant="outline-primary" onClick={doThis}>
+                                    <Icon iconName="thumbtack" />
+                                </Button>
+                            </Col>
+                        </>
+                    ) : (
+                        <>
+                            <Col md={3}>
+                                <Button variant="outline-primary" onClick={doThis}>
+                                    <Icon iconName="thumbtack" />
+                                </Button>
+                            </Col>
+                            <Col md={9}></Col>
+                        </>
+                    )}
+                </Row>
             </SidebarComponent>
         </>
     );

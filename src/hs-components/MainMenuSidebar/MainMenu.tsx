@@ -29,7 +29,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
         <>
             <IconBar struct={struct}></IconBar>
             <SideBar
-                id="main-menu"
+                id={MAIN_MENU_ID}
                 isShown={isShown}
                 showBackdrop={false}
                 position={'Left'}
