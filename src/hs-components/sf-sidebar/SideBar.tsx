@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { FunctionComponent } from 'react';
 import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
-import { usePrevious } from '../../hs-utils/hs-hooks';
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button, ButtonGroup, ButtonToolbar, ToggleButton, ToggleButtonGroup, Row, Col } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './sidebar-menu.css';
 import Icon from '../Icon/Icon';
@@ -14,8 +14,10 @@ export interface SidebarProps {
     position?: 'Left' | 'Right';
     width?: 'auto' | string;
     showBackdrop?: boolean;
+    isPinned: boolean;
     closeOnDocumentClick?: boolean;
     children: JSX.Element;
+    onPinChanged: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const defaultProps: SidebarProps = {
@@ -25,8 +27,12 @@ const defaultProps: SidebarProps = {
     position: 'Left',
     width: '220px',
     showBackdrop: false,
+    isPinned: false,
     closeOnDocumentClick: true,
-    children: <h1>hello</h1>
+    children: <h1>hello</h1>,
+    onPinChanged: () => {
+        console.log('hello');
+    }
 };
 
 export const SideBar: FunctionComponent<SidebarProps> = ({
@@ -36,23 +42,39 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
     position,
     width,
     showBackdrop,
+    isPinned,
     closeOnDocumentClick,
+    onPinChanged,
     children
 }) => {
-    const prevIsShown = usePrevious(isShown);
     const sidebarRef = useRef(null);
-    const visibilityValue = isShown ? 'visible' : 'hidden';
 
-    const onCreate = () => {
-        console.log('oncreate');
-        sidebarRef.current.element.style.visibility = visibilityValue;
-    };
+    useEffect(() => {
+        if (sidebarRef.current !== null && sidebarRef.current.isRendered) {
+            sidebarRef.current.toggle();
+        }
+    }, [isShown]);
 
-    if (sidebarRef.current !== null && isShown !== prevIsShown) {
-        sidebarRef.current.toggle();
-    }
+    useEffect(() => {
+        if (sidebarRef.current !== null && sidebarRef.current.isRendered) {
+            sidebarRef.current.properties.type = type;
+            sidebarRef.current.toggle();
+        }
+    }, [type]);
 
-    const doThis = () => {};
+    const pinMenuButton = (
+        <Button variant="primary" onClick={onPinChanged}>
+            {/* {!isPinned ? (
+                <span className="fa-layers fa-fw" style={{ cursor: 'pointer' }}>
+                    <FontAwesomeIcon icon="thumbtack" />
+                    <FontAwesomeIcon icon="slash" inverse transform="shrink-6" color="white" />
+                </span>
+            ) : (
+                <Icon iconName="thumbtack" />
+                )} */}
+                <Icon iconName="thumbtack" />
+        </Button>
+    );
 
     return (
         <>
@@ -60,8 +82,6 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                 id={id}
                 className={'sidebar'}
                 type={type}
-                created={onCreate}
-                style={{ visibility: visibilityValue }}
                 position={position}
                 enableGestures={false}
                 closeOnDocumentClick={false}
@@ -76,18 +96,12 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                     {position === 'Left' ? (
                         <>
                             <Col md={9}></Col>
-                            <Col md={3}>
-                                <Button variant="outline-primary" onClick={doThis}>
-                                    <Icon iconName="thumbtack" />
-                                </Button>
-                            </Col>
+                            <Col md={3}>{pinMenuButton}</Col>
                         </>
                     ) : (
                         <>
                             <Col md={3}>
-                                <Button variant="outline-primary" onClick={doThis}>
-                                    <Icon iconName="thumbtack" />
-                                </Button>
+                                <Col md={3}>{pinMenuButton}</Col>
                             </Col>
                             <Col md={9}></Col>
                         </>

@@ -9,21 +9,25 @@ import { NavStruct } from '../../app-main/utils/RootStructInterface';
 import { MenuContent } from './MenuContent/MenuContent';
 import { usePrevious } from '../../hs-utils/hs-hooks';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { selectById } from '../sf-sidebar/menusSlice';
+import { selectById, updateMenu } from '../sf-sidebar/menusSlice';
 import { RootState } from '../../app-main/app/store';
 
 import { MAIN_MENU_ID } from '../../hs-utils/constants/constants';
 
 export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
     const menuState = useSelector((state: RootState) => selectById(state, MAIN_MENU_ID));
-    const sidebarType = menuState.isPinned ? 'Push' : 'Over';
+    const dispatch = useDispatch();
 
     const currentModule = menuState.currentModule;
     const prevModule = usePrevious(currentModule);
 
     const isShown = prevModule === currentModule && menuState.isShown === true ? false : menuState.isShown;
+
+    const pinChangedHandler = () => {
+        dispatch(updateMenu({ id: MAIN_MENU_ID, changes: { isPinned: !menuState.isPinned, isShown: false } }));
+    };
 
     return (
         <>
@@ -33,7 +37,9 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
                 isShown={isShown}
                 showBackdrop={false}
                 position={'Left'}
-                type={sidebarType}
+                type={menuState.isPinned ? 'Push' : 'Over'}
+                isPinned={menuState.isPinned}
+                onPinChanged={pinChangedHandler}
                 width={'250px'}>
                 <MenuContent struct={struct} />
             </SideBar>

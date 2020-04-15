@@ -15,14 +15,13 @@ const Root: FunctionComponent = () => {
     return (
         <Router>
             <MainMenu struct={RootStruct} />
-            <ConfigSidebar>HELLO</ConfigSidebar>
-            <div className="e-main-content" >
-            {/* id="maintext" */}
+            <ConfigSidebar></ConfigSidebar>
+            <div className="e-main-content">
                 <PageHeader></PageHeader>
                 <PageContent>
                     <Switch>
                         <Route exact path="/">
-                            <p>Home</p>
+                            <p>HOME</p>
                         </Route>
                         <Route path="/planning" component={Planning} />
                         <Route path="/timesheets" component={Timesheets} />
@@ -34,7 +33,6 @@ const Root: FunctionComponent = () => {
                         </Route>
                     </Switch>
                 </PageContent>
-                {/* </div> */}
             </div>
         </Router>
     );

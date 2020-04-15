@@ -7,20 +7,23 @@ import Icon from '../../Icon/Icon';
 import logo from '../../../assets/TimeSphere_icon_30.svg';
 import { NavStruct } from '../../../app-main/utils/RootStructInterface';
 import { RootState } from '../../../app-main/app/store';
-
-import './style.css';
+import { useLocation } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-
 import { selectById, updateMenu } from '../../sf-sidebar/menusSlice';
-
 import { MAIN_MENU_ID } from '../../../hs-utils/constants/constants';
-
 import { useCss } from 'react-use';
+
+import './style.css';
 
 const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
     const dispatch = useDispatch();
+
+    const location = useLocation();
+    let currentPath = location.pathname;
+
+    console.log(currentPath);
 
     const menuState = useSelector((state: RootState) => selectById(state, MAIN_MENU_ID));
     const currentModule = menuState.currentModule;
@@ -31,10 +34,13 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const nextLanguage = i18n.language === 'en' ? 'Fr' : 'En';
 
     const toggleMenuHandler = (moduleKey) => {
-        const response = moduleKey !== currentModule && moduleKey !== null ? true : false;
-        const module = response === false ? undefined : moduleKey;
-
-        dispatch(updateMenu({ id: MAIN_MENU_ID, changes: { isShown: response, currentModule: module } }));
+        if (menuState.isPinned) {
+            dispatch(updateMenu({ id: MAIN_MENU_ID, changes: { currentModule: moduleKey } }));
+        } else {
+            const response = moduleKey !== currentModule && moduleKey !== null ? true : false;
+            const module = response === false ? undefined : moduleKey;
+            dispatch(updateMenu({ id: MAIN_MENU_ID, changes: { isShown: response, currentModule: module } }));
+        }
     };
 
     const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });
@@ -51,7 +57,7 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
                     </Nav.Item>
                 </LinkContainer>
                 {struct.map((module) => {
-                    let linkstyle = currentModule === module.key ? currentmoduleStyle : moduleStyle;
+                    const linkstyle = currentPath.includes(module.link) ? currentmoduleStyle : moduleStyle;
                     return (
                         <OverlayTrigger
                             key={module.key}
