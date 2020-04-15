@@ -25,10 +25,10 @@ const PageHeader: FunctionComponent = () => {
     };
     return (
         <Row style={{ backgroundColor: '#282c34' }} noGutters>
-            <Col md={11} sm={12} className="align-self-center ">
+            <Col md={11} sm={8} xs={8} className="align-self-center">
                 <DynamicBreadcrumbs struct={RootStruct} folder={folderPaths} />
             </Col>
-            <Col md={1} sm={12} className="align-self-center ">
+            <Col md={1} sm={4} xs={4} className="align-self-center ">
                 <Button variant="outline-primary" onClick={toggleOptionsMenuhandler}>
                     <Icon iconName="sliders-h"></Icon>
                 </Button>
