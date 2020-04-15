@@ -45,6 +45,13 @@
     color: #ffffff;
 }
 
+.e-sidebar.e-right {
+    border: 0px transparent;
+}
+.e-sidebar.e-left {
+    border: 0px transparent;
+}
+
 .close-btn:hover,
 .close-btn:active,
 .close-btn:focus {

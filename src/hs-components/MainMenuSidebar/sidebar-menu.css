@@ -59,6 +59,13 @@
     box-shadow: none;
 }
 
+.e-sidebar.e-right {
+    border-left: 0px transparent;
+}
+.e-sidebar.e-left {
+    border-right: 0px transparent;
+}
+
 .radiobutton {
     text-align: center;
 }
@@ -117,4 +124,3 @@ body {
 .close-btn:focus {
     background: #fafafa;
 }
-
