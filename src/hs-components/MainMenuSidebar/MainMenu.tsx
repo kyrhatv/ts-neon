@@ -14,8 +14,10 @@ import { useSelector } from 'react-redux';
 import { selectById } from '../sf-sidebar/menusSlice';
 import { RootState } from '../../app-main/app/store';
 
+import { MAIN_MENU_ID } from '../../hs-utils/constants/constants';
+
 export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
-    const menuState = useSelector((state: RootState) => selectById(state, 'mainMenu'));
+    const menuState = useSelector((state: RootState) => selectById(state, MAIN_MENU_ID));
     const sidebarType = menuState.isPinned ? 'Push' : 'Over';
 
     const currentModule = menuState.currentModule;

@@ -10,12 +10,14 @@ import { MultipleCategoriesMenuContent } from './MultipleCategoriesMenuContent';
 import { RootState } from '../../../app-main/app/store';
 import { selectById } from '../../sf-sidebar/menusSlice';
 
+import { MAIN_MENU_ID } from '../../../hs-utils/constants/constants';
+
 import './style.css';
 
 export const MenuContent: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t] = useTranslation();
 
-    const menuState = useSelector((state: RootState) => selectById(state, 'mainMenu'));
+    const menuState = useSelector((state: RootState) => selectById(state, MAIN_MENU_ID));
 
     const currentModule = menuState.currentModule;
 

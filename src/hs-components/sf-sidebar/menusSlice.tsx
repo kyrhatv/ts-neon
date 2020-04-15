@@ -1,6 +1,8 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app-main/app/store';
 
+import { MAIN_MENU_ID, OPTIONS_MENU_ID } from '../../hs-utils/constants/constants';
+
 export type Menu = {
     id: string;
     isShown: boolean;
@@ -12,8 +14,8 @@ const menusAdapter = createEntityAdapter<Menu>({});
 const emptyInitialState = menusAdapter.getInitialState();
 
 const ENTITIES: Menu[] = [
-    { id: 'mainMenu', isShown: false, currentModule: 'planning', isPinned: false },
-    { id: 'optionMenu', isShown: false, currentModule: 'planning', isPinned: false }
+    { id: MAIN_MENU_ID, isShown: false, currentModule: 'planning', isPinned: false },
+    { id: OPTIONS_MENU_ID, isShown: false, currentModule: 'planning', isPinned: false }
 ];
 
 const INITIAL_STATE = menusAdapter.upsertMany(emptyInitialState, ENTITIES);

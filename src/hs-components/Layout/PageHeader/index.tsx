@@ -6,7 +6,9 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { RootStruct } from '../../../app-main/app/RootStruct';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { toggleOptionsMenu, getOptionMenu } from '../../ConfigSidebar/ConfigSidebarSlice';
+import { selectById, updateMenu } from '../../sf-sidebar/menusSlice';
+import { RootState } from '../../../app-main/app/store';
+import { OPTIONS_MENU_ID } from '../../../hs-utils/constants/constants';
 
 import './style.css';
 import Icon from '../../Icon/Icon';
@@ -15,17 +17,11 @@ const PageHeader: FunctionComponent = () => {
     let location = useLocation();
     let folderPaths = location.pathname.split('/').filter((el) => el !== '');
     const dispatch = useDispatch();
-    const menuState = useSelector(getOptionMenu);
+
+    const menuState = useSelector((state: RootState) => selectById(state, OPTIONS_MENU_ID));
 
     const toggleOptionsMenuhandler = () => {
-        dispatch(
-            toggleOptionsMenu({
-                id: menuState.id,
-                isShown: !menuState.isShown,
-                currentModule: menuState.currentModule,
-                isPinned: menuState.isPinned
-            })
-        );
+        dispatch(updateMenu({ id: OPTIONS_MENU_ID, changes: { isShown: !menuState.isShown } }));
     };
     return (
         // <div ref={ref} style={{ position: 'relative' }}>

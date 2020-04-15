@@ -14,13 +14,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectById, updateMenu } from '../../sf-sidebar/menusSlice';
 
+import { MAIN_MENU_ID } from '../../../hs-utils/constants/constants';
+
 import { useCss } from 'react-use';
 
 const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
     const [t, i18n] = useTranslation();
     const dispatch = useDispatch();
 
-    const menuState = useSelector((state: RootState) => selectById(state, 'mainMenu'));
+    const menuState = useSelector((state: RootState) => selectById(state, MAIN_MENU_ID));
     const currentModule = menuState.currentModule;
 
     const changeLanguage = () => {
@@ -32,7 +34,7 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
         const response = moduleKey !== currentModule && moduleKey !== null ? true : false;
         const module = response === false ? undefined : moduleKey;
 
-        dispatch(updateMenu({ id: 'mainMenu', changes: { isShown: response, currentModule: module } }));
+        dispatch(updateMenu({ id: MAIN_MENU_ID, changes: { isShown: response, currentModule: module } }));
     };
 
     const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });

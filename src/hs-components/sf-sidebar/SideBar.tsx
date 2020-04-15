@@ -4,10 +4,10 @@ import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
 import { usePrevious } from '../../hs-utils/hs-hooks';
 import { Button, Row, Col } from 'react-bootstrap';
 
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 
-import { RootState } from '../../app-main/app/store';
-import { selectById } from './menusSlice';
+// import { RootState } from '../../app-main/app/store';
+// import { selectById } from './menusSlice';
 
 import './sidebar-menu.css';
 import Icon from '../Icon/Icon';
