@@ -13,11 +13,13 @@ import Icon from '../../Icon/Icon';
 interface MultipleCategoriesMenuContentProps {
     menu: NavOption;
     category: SubCategory;
+    clickHandler: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 }
 
 export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategoriesMenuContentProps> = ({
     menu,
-    category
+    category,
+    clickHandler
 }) => {
     const [t] = useTranslation();
     const [open, setOpen] = useState(true);
@@ -44,7 +46,8 @@ export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategories
                                 <LinkContainer
                                     className="link-container"
                                     key={menu.key + menuItem.key}
-                                    to={menu.link + menuItem.link}>
+                                    to={menu.link + menuItem.link}
+                                    onClick={clickHandler}>
                                     <Nav.Link className="menu-item-link">
                                         <h6>{t(menuItem.key)}</h6>
                                     </Nav.Link>
