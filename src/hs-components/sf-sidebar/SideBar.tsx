@@ -63,7 +63,6 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
     }
 
     const doThis = () => {
-
         // dispatch(
         //     toggleMenu({
         //         id: menuState.id,
@@ -79,8 +78,8 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
             <SidebarComponent
                 id={id}
                 className={'sidebar'}
-                // type={'Push'}
-                type={type}
+                type={'Push'}
+                // type={type}
                 created={onCreate}
                 style={{ visibility: visibilityValue }}
                 position={position}
@@ -89,7 +88,6 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                 ref={sidebarRef}
                 width={width}
                 target={'.content'}>
-                <div className="test">
                     <Col>
                         <Row>{children}</Row>
                     </Col>
@@ -114,7 +112,6 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                             </>
                         )}
                     </Row>
-                </div>
             </SidebarComponent>
         </>
     );

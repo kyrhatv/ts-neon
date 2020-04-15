@@ -10,8 +10,7 @@ export interface PageContainerProps {
 
 const PageContainer: FunctionComponent<PageContainerProps> = ({ pageName, children }) => {
     const className = useCss({
-        height: '100%',
-        minHeight: '100%'
+        marginTop: '15px'
     });
 
     return (

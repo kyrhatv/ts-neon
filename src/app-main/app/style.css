@@ -1,7 +1,7 @@
-/* .e-main-content {
+.e-main-content {
     height: 100vh;
-} */
-
+    padding-left: 70px;
+}
 #sidebar-menu .e-menu-wrapper ul .e-menu-item:hover .e-menu-item.e-focused:hover {
     background-color: #3e454c !important;
 }

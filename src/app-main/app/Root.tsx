@@ -16,25 +16,25 @@ const Root: FunctionComponent = () => {
         <Router>
             <MainMenu struct={RootStruct} />
             <ConfigSidebar>HELLO</ConfigSidebar>
-            <div className="e-main-content" id="maintext">
-                <div style={{ marginLeft: '70px' }}>
-                    <PageHeader></PageHeader>
-                    <PageContent>
-                        <Switch>
-                            <Route exact path="/">
-                                <p>Home</p>
-                            </Route>
-                            <Route path="/planning" component={Planning} />
-                            <Route path="/timesheets" component={Timesheets} />
-                            <Route path="/about">
-                                <p>About</p>
-                            </Route>
-                            <Route path="/profile">
-                                <p>Profile</p>
-                            </Route>
-                        </Switch>
-                    </PageContent>
-                </div>
+            <div className="e-main-content" >
+            {/* id="maintext" */}
+                <PageHeader></PageHeader>
+                <PageContent>
+                    <Switch>
+                        <Route exact path="/">
+                            <p>Home</p>
+                        </Route>
+                        <Route path="/planning" component={Planning} />
+                        <Route path="/timesheets" component={Timesheets} />
+                        <Route path="/about">
+                            <p>About</p>
+                        </Route>
+                        <Route path="/profile">
+                            <p>Profile</p>
+                        </Route>
+                    </Switch>
+                </PageContent>
+                {/* </div> */}
             </div>
         </Router>
     );

@@ -9,9 +9,12 @@ export interface PageContent {
 
 const PageContent: FunctionComponent<PageContent> = ({ children }) => {
     const className = useCss({
-        height: '100%',
-        minHeight: '100%',
-        marginTop: '15px'
+        display: 'inline-block',
+        verticalAlign: 'top',
+        overflowY: 'scroll',
+        paddingTop: '15px',
+        height: '95%',
+        minHeight: '95%'
     });
 
     return (
