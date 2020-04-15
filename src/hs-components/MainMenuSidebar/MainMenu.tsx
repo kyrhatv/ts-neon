@@ -34,7 +34,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
                 showBackdrop={false}
                 position={'Left'}
                 type={sidebarType}
-                width={'300px'}>
+                width={'250px'}>
                 <MenuContent struct={struct} />
             </SideBar>
         </>
