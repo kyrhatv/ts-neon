@@ -22,9 +22,6 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
 
     const location = useLocation();
     let currentPath = location.pathname;
-
-    console.log(currentPath);
-
     const menuState = useSelector((state: RootState) => selectById(state, MAIN_MENU_ID));
     const currentModule = menuState.currentModule;
 

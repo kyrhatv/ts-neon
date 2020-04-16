@@ -59,8 +59,7 @@
 }
 
 .footer {
+    bottom: 5px;
     position: absolute;
-    width: 100%;
-    bottom: 0;
-    margin: 5px;
+    width: inherit;
 }

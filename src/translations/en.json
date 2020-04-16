@@ -74,5 +74,9 @@
             "declaration": "Declaration",
             "simplifiedAbscence": "Simplified Abscence"
         }
+    },
+    "menus": {
+        "pin": "Pin menu",
+        "unpin": "Unpin menu"
     }
 }

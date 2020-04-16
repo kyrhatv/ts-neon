@@ -74,5 +74,10 @@
             "declaration": "Déclaration",
             "simplifiedAbscence": "Abscence simplifiée"
         }
+    },
+
+    "menus": {
+        "pin": "Épingler le menu",
+        "unpin": "Détacher le menu"
     }
 }

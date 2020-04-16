@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import { FunctionComponent } from 'react';
 import { SidebarComponent } from '@syncfusion/ej2-react-navigations';
-import { Button, ButtonGroup, ButtonToolbar, ToggleButton, ToggleButtonGroup, Row, Col } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button, Row, Col, Container } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
-import './sidebar-menu.css';
 import Icon from '../Icon/Icon';
+import InlineSpace from '../hs-component-space';
+import './sidebar-menu.css';
 
 export interface SidebarProps {
     id?: string;
@@ -48,6 +49,7 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
     children
 }) => {
     const sidebarRef = useRef(null);
+    const [t] = useTranslation();
 
     useEffect(() => {
         if (sidebarRef.current !== null && sidebarRef.current.isRendered) {
@@ -61,20 +63,6 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
             sidebarRef.current.toggle();
         }
     }, [type]);
-
-    const pinMenuButton = (
-        <Button variant="primary" onClick={onPinChanged}>
-            {/* {!isPinned ? (
-                <span className="fa-layers fa-fw" style={{ cursor: 'pointer' }}>
-                    <FontAwesomeIcon icon="thumbtack" />
-                    <FontAwesomeIcon icon="slash" inverse transform="shrink-6" color="white" />
-                </span>
-            ) : (
-                <Icon iconName="thumbtack" />
-                )} */}
-                <Icon iconName="thumbtack" />
-        </Button>
-    );
 
     return (
         <>
@@ -92,21 +80,17 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
                 <Col>
                     <Row>{children}</Row>
                 </Col>
-                <Row className="footer">
-                    {position === 'Left' ? (
-                        <>
-                            <Col md={9}></Col>
-                            <Col md={3}>{pinMenuButton}</Col>
-                        </>
-                    ) : (
-                        <>
-                            <Col md={3}>
-                                <Col md={3}>{pinMenuButton}</Col>
-                            </Col>
-                            <Col md={9}></Col>
-                        </>
-                    )}
-                </Row>
+                <Container fluid>
+                    <Row className="footer">
+                        <Col md={12}>
+                            <Button variant="dark" onClick={onPinChanged} block>
+                                <Icon iconName="thumbtack" />
+                                <InlineSpace />
+                                {isPinned ? t('menus.unpin') : t('menus.pin')}
+                            </Button>
+                        </Col>
+                    </Row>
+                </Container>
             </SidebarComponent>
         </>
     );

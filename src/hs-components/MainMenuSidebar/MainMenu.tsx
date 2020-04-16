@@ -26,7 +26,21 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
     const isShown = prevModule === currentModule && menuState.isShown === true ? false : menuState.isShown;
 
     const pinChangedHandler = () => {
-        dispatch(updateMenu({ id: MAIN_MENU_ID, changes: { isPinned: !menuState.isPinned, isShown: false } }));
+        if (menuState.isPinned) {
+            dispatch(
+                updateMenu({
+                    id: MAIN_MENU_ID,
+                    changes: { isPinned: !menuState.isPinned, isShown: false, currentModule: undefined }
+                })
+            );
+        } else {
+            dispatch(
+                updateMenu({
+                    id: MAIN_MENU_ID,
+                    changes: { isPinned: !menuState.isPinned, isShown: menuState.isShown }
+                })
+            );
+        }
     };
 
     return (
