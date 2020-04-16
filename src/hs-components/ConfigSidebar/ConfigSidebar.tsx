@@ -18,6 +18,7 @@ export const ConfigSidebar: FunctionComponent = () => {
 
     // const currentModule = state.currentModule;
     // const prevModule = usePrevious(currentModule);
+    //    const isShown = prevModule === currentModule && menuState.isShown === true ? false : menuState.isShown;
 
     const isShown = menuState.isShown;
     const pinChangedHandler = () => {
@@ -33,6 +34,7 @@ export const ConfigSidebar: FunctionComponent = () => {
             type={menuState.isPinned ? 'Push' : 'Over'}
             isPinned={menuState.isPinned}
             onPinChanged={pinChangedHandler}
+            closeOnDocumentClick={true}
             width={'200px'}>
             <h1>Hello</h1>
         </SideBar>

@@ -50,6 +50,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
                 id={MAIN_MENU_ID}
                 isShown={isShown}
                 showBackdrop={false}
+                closeOnDocumentClick={false}
                 position={'Left'}
                 type={menuState.isPinned ? 'Push' : 'Over'}
                 isPinned={menuState.isPinned}
