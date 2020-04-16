@@ -24,7 +24,7 @@ const PageHeader: FunctionComponent = () => {
         dispatch(updateMenu({ id: OPTIONS_MENU_ID, changes: { isShown: !menuState.isShown } }));
     };
     return (
-        <Row style={{ backgroundColor: '#282c34' }} noGutters>
+        <Row className="header-container" style={{ backgroundColor: '#282c34' }} noGutters>
             <Col md={11} sm={8} xs={8} className="align-self-center">
                 <DynamicBreadcrumbs struct={RootStruct} folder={folderPaths} />
             </Col>
