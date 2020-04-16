@@ -40,18 +40,27 @@ const IconBar: FunctionComponent<NavStruct> = ({ struct }) => {
         }
     };
 
+    const homeButton = useCss({
+        backgroundColor: 'transparent',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '20px',
+        height: '64px',
+        '&:hover': {
+            cursor: 'pointer'
+        }
+    });
+
     const currentmoduleStyle = useCss({ color: '#fff', backgroundColor: '#004085' });
     const moduleStyle = useCss({ color: '#fff', backgroundColor: '#282c34' });
 
     return (
         <div className="icon-bar-container">
             <Nav variant="pills" defaultActiveKey="/home" className="flex-column icon-bar">
-                <LinkContainer to="/profile">
-                    <Nav.Item>
-                        <Nav.Link>
-                            <img src={logo} alt="" height="30" className="d-inline-block align-top" />
-                        </Nav.Link>
-                    </Nav.Item>
+                <LinkContainer to="/">
+                    <div className={homeButton}>
+                        <img src={logo} alt="" width="100%" className=" d-inline-block align-top logo" />
+                    </div>
                 </LinkContainer>
                 {struct.map((module) => {
                     const linkstyle = currentPath.includes(module.link) ? currentmoduleStyle : moduleStyle;

@@ -3,9 +3,10 @@ import { FunctionComponent } from 'react';
 import { NavOption, SubCategory } from '../../../app-main/utils/RootStructInterface';
 import { useTranslation } from 'react-i18next';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Accordion, Card, Nav } from 'react-bootstrap';
+import { Accordion, Card } from 'react-bootstrap';
 import InlineSpace from '../../hs-component-space';
 
+import { useCss } from 'react-use';
 import './style.css';
 
 import Icon from '../../Icon/Icon';
@@ -24,6 +25,16 @@ export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategories
     const [t] = useTranslation();
     const [open, setOpen] = useState(true);
 
+    const linkStyle = useCss({
+        backgroundColor: 'transparent',
+        alignItems: 'left',
+        padding: '10px',
+        '&:hover': {
+            cursor: 'pointer',
+            backgroundColor: '#010101'
+        }
+    });
+
     return (
         <Accordion style={{ width: '100%' }} defaultActiveKey={category.categoryId} key={category.categoryId}>
             <Accordion.Toggle
@@ -37,25 +48,24 @@ export const MultipleCategoriesMenuContent: FunctionComponent<MultipleCategories
                     {t(category.categoryId)}
                 </h6>
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey={category.categoryId}>
-                <Card.Body style={{ padding: 2 }} key={category.categoryId}>
-                    {menu.children
-                        .filter((child) => child.subCategoryId === category.categoryId)
-                        .map((menuItem) => {
-                            return (
+            <>
+                {menu.children
+                    .filter((child) => child.subCategoryId === category.categoryId)
+                    .map((menuItem) => {
+                        return (
+                            <Accordion.Collapse eventKey={category.categoryId}>
                                 <LinkContainer
-                                    className="link-container"
                                     key={menu.key + menuItem.key}
                                     to={menu.link + menuItem.link}
                                     onClick={clickHandler}>
-                                    <Nav.Link className="menu-item-link">
+                                    <Card.Body className={linkStyle} key={category.categoryId}>
                                         <h6>{t(menuItem.key)}</h6>
-                                    </Nav.Link>
+                                    </Card.Body>
                                 </LinkContainer>
-                            );
-                        })}
-                </Card.Body>
-            </Accordion.Collapse>
+                            </Accordion.Collapse>
+                        );
+                    })}
+            </>
         </Accordion>
     );
 };

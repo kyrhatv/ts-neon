@@ -30,13 +30,13 @@
 }
 
 .non-collapse-menu-header {
-    height: 51px;
+    height: 64px;
     background-color: #282c34;
     border: 0 transparent;
 }
 
 .collapsable-menu-header {
-    /* height: 70px; */
+    height: 64px;
     background-color: #282c34;
     border: 0 transparent;
 }
