@@ -64,35 +64,39 @@ export const SideBar: FunctionComponent<SidebarProps> = ({
         }
     }, [type]);
 
+    useEffect(() => {
+        if (sidebarRef.current !== null && sidebarRef.current.isRendered) {
+            sidebarRef.current.properties.closeOnDocumentClick = closeOnDocumentClick;
+        }
+    }, [closeOnDocumentClick]);
+
     return (
-        <>
-            <SidebarComponent
-                id={id}
-                className={'sidebar'}
-                type={type}
-                position={position}
-                enableGestures={false}
-                closeOnDocumentClick={closeOnDocumentClick}
-                showBackdrop={showBackdrop}
-                ref={sidebarRef}
-                width={width}
-                target={'.content'}>
-                <Col>
-                    <Row>{children}</Row>
-                </Col>
-                <Container fluid>
-                    <Row className="footer">
-                        <Col md={12}>
-                            <Button variant="dark" onClick={onPinChanged} block>
-                                <Icon iconName="thumbtack" />
-                                <InlineSpace />
-                                {isPinned ? t('menus.unpin') : t('menus.pin')}
-                            </Button>
-                        </Col>
-                    </Row>
-                </Container>
-            </SidebarComponent>
-        </>
+        <SidebarComponent
+            id={id}
+            className={'sidebar'}
+            type={type}
+            position={position}
+            enableGestures={false}
+            closeOnDocumentClick={closeOnDocumentClick}
+            showBackdrop={showBackdrop}
+            ref={sidebarRef}
+            width={width}
+            target={'.content'}>
+            <Col>
+                <Row>{children}</Row>
+            </Col>
+            <Container fluid>
+                <Row className="footer">
+                    <Col md={12}>
+                        <Button variant="dark" onClick={onPinChanged} block>
+                            <Icon iconName="thumbtack" />
+                            <InlineSpace />
+                            {isPinned ? t('menus.unpin') : t('menus.pin')}
+                        </Button>
+                    </Col>
+                </Row>
+            </Container>
+        </SidebarComponent>
     );
 };
 
