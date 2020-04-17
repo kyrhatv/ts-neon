@@ -79,5 +79,10 @@
     "menus": {
         "pin": "Épingler le menu",
         "unpin": "Détacher le menu"
+    },
+    "ribbon": {
+        "todo": "Processus hebdomadaire",
+        "today": "Aujourd'hui",
+        "planif": "Planif."
     }
 }

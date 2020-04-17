@@ -23,7 +23,7 @@ export function Demo() {
                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                     <li>Aliquam tincidunt mauris eu risus. </li>
                 </ul>
-            </div>{' '}
+            </div>
             <div className="col-lg-12">
                 <p>
                     <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac
@@ -44,7 +44,7 @@ export function Demo() {
                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                     <li>Aliquam tincidunt mauris eu risus. </li>
                 </ul>
-            </div>{' '}
+            </div>
             <div className="col-lg-12">
                 <p>
                     <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac
@@ -65,7 +65,7 @@ export function Demo() {
                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                     <li>Aliquam tincidunt mauris eu risus. </li>
                 </ul>
-            </div>{' '}
+            </div>
             <div className="col-lg-12">
                 <p>
                     <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac
@@ -86,7 +86,7 @@ export function Demo() {
                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                     <li>Aliquam tincidunt mauris eu risus. </li>
                 </ul>
-            </div>{' '}
+            </div>
             <div className="col-lg-12">
                 <p>
                     <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac
@@ -107,7 +107,7 @@ export function Demo() {
                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                     <li>Aliquam tincidunt mauris eu risus. </li>
                 </ul>
-            </div>{' '}
+            </div>
             <div className="col-lg-12">
                 <p>
                     <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac
@@ -128,7 +128,7 @@ export function Demo() {
                     <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
                     <li>Aliquam tincidunt mauris eu risus. </li>
                 </ul>
-            </div>{' '}
+            </div>
         </>
     );
 }

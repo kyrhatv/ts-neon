@@ -1,0 +1,10 @@
+.header-container-ribbon {
+    background-color: #010101;
+    color: #f0f0f0;
+    top: 0;
+    width: 100%;
+    z-index: 500;
+    /* height: 40px;
+    min-height: 40px; */
+    padding: 5px;
+}

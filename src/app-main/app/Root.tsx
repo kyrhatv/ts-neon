@@ -18,21 +18,20 @@ const Root: FunctionComponent = () => {
             <ConfigSidebar></ConfigSidebar>
             <div className="e-main-content">
                 <PageHeader></PageHeader>
-                <PageContent>
-                    <Switch>
-                        <Route exact path="/">
-                            <p>HOME</p>
-                        </Route>
-                        <Route path="/planning" component={Planning} />
-                        <Route path="/timesheets" component={Timesheets} />
-                        <Route path="/about">
-                            <p>About</p>
-                        </Route>
-                        <Route path="/profile">
-                            <p>Profile</p>
-                        </Route>
-                    </Switch>
-                </PageContent>
+
+                <Switch>
+                    <Route exact path="/">
+                        <p>HOME</p>
+                    </Route>
+                    <Route path="/planning" component={Planning} />
+                    <Route path="/timesheets" component={Timesheets} />
+                    <Route path="/about">
+                        <p>About</p>
+                    </Route>
+                    <Route path="/profile">
+                        <p>Profile</p>
+                    </Route>
+                </Switch>
             </div>
         </Router>
     );

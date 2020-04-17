@@ -78,5 +78,10 @@
     "menus": {
         "pin": "Pin menu",
         "unpin": "Unpin menu"
+    },
+    "ribbon": {
+        "todo": "Weekly process",
+        "today": "Today",
+        "planif": "Prevision"
     }
 }
