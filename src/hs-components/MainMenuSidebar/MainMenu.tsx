@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { FunctionComponent } from 'react';
 import SideBar from '../sf-sidebar';
 import IconBar from './IconBar';
@@ -17,7 +16,7 @@ export const MainMenu: FunctionComponent<NavStruct> = ({ struct }) => {
 
     const currentModule = menuState.currentModule;
     const prevModule = usePrevious(currentModule);
-    
+
     const isShown = prevModule === currentModule && menuState.isShown === true ? false : menuState.isShown;
 
     const pinChangedHandler = () => {
