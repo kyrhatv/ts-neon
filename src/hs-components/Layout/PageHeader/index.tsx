@@ -29,7 +29,7 @@ const PageHeader: FunctionComponent = () => {
                 <DynamicBreadcrumbs struct={RootStruct} folder={folderPaths} />
             </Col>
             <Col md={1} sm={4} xs={4} className="align-self-center ">
-                <Button variant="outline-primary" onClick={toggleOptionsMenuhandler}>
+                <Button variant="outline-primary" onClick={toggleOptionsMenuhandler} style={{ float: 'right' }}>
                     <Icon iconName="sliders-h"></Icon>
                 </Button>
             </Col>
